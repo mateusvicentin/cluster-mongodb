@@ -39,3 +39,9 @@ rvers --port 27017
 docker run --name mongo-config-3 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
 rvers --port 27017
 ```
+
+<p>Apos isso é configurado apenas um dos três containers do ConfigServer, irei usar o Primeiro como exemplo.</p>
+
+```shell
+ docker exec -it mongo-config-1 mongosh
+```
