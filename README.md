@@ -13,8 +13,20 @@
 
 
 
-<h2>Criando o Cluster</h2>
+<h2>Criando o Roteador(Cluster)</h2>
 
 ```shell
 docker network create mongo-cluster-0
 ```
+<h2>Criando o ConfigServers</h2>
+<h3>Criando o Primeiro </h3>
+docker run --name mongo-config-1 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
+rvers --port 27017
+
+<h3>Criando o Segundo</h3>
+docker run --name mongo-config-2 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
+rvers --port 27017
+
+<h3>Criando o Terceiro</h3>
+docker run --name mongo-config-3 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
+rvers --port 27017
