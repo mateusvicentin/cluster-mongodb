@@ -2,7 +2,7 @@
 <p align="center">Projeto tem como o objetivo aplicar conceitos de dados em um amiente de banco de dados distruido. Projentando um sistema escalável e eficientemente particionado para lidar com um grade volume de dados.</p>
 </br>
 
-<h3>Cenario:</h3>
+<h3 align="center">Cenario</h3>
 <p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades.</p>
 <p>Para isso será utilizado três tipos de serviços diferentes, que são:.</p>
 </br>
