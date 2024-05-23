@@ -4,7 +4,7 @@
 
 <h2>Cenario</h2>
 <p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades.</p>
-<p>Para isso será utilizado três tipos de serviços diferentes, que são:.</p>
+<p>Para isso será utilizado três tipos de serviços diferentes, que são:</p>
 </br>
 
 <h4>Roteadores:</h4><p>Responsáveis pelas requisições de escrita e leitura.</p>
