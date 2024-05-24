@@ -45,3 +45,18 @@ rvers --port 27017
 ```shell
  docker exec -it mongo-config-1 mongosh
 ```
+
+```shell
+rs.initiate( 
+{
+   _id: "config-servers", 
+   configsvr: true, 
+   version: 1,
+   members: [ 
+    { _id: 0, host: "mongo-config-1:27017" },
+    { _id: 1, host: "mongo-config-2:27017" }, 
+    { _id: 2, host: "mongo-config-3:27017" }
+]
+}
+)
+```
