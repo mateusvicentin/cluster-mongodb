@@ -23,21 +23,21 @@ docker network create mongo-cluster-router
 
 ```shell
 docker run --name mongo-config-1 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27017
+rvers --port 27018
 ```
 
 <h3>Criando o Segundo</h3>
 
 ```shell
 docker run --name mongo-config-2 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27017
+rvers --port 27018
 ```
 
 <h3>Criando o Terceiro</h3>
 
 ```shell
 docker run --name mongo-config-3 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27017
+rvers --port 27018
 ```
 
 <p>Apos isso é configurado apenas um dos três containers do ConfigServer, irei usar o Primeiro como exemplo.</p>
