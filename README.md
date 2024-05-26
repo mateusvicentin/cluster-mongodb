@@ -16,7 +16,7 @@
 <h2>Criando o Roteador(Cluster)</h2>
 
 ```shell
-docker network create mongo-cluster-0
+docker network create mongo-cluster-router
 ```
 <h2>Criando o ConfigServers</h2>
 <h3>Criando o Primeiro </h3>
