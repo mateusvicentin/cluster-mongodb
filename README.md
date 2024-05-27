@@ -70,3 +70,6 @@ rs.initiate(
 ```shell
 rs.status()
 ```
+<img src="C:\Users\Vicentin\Desktop\imagem1.png" alt="Imagem_1">
+
+
