@@ -204,3 +204,8 @@ rs.initiate(
 <img src="imagem5.png" alt="Imagem_5">
 <img src="imagem6.png" alt="Imagem_6">
 
+<p>Agora é so criar o roteador, para que o Shards e os servidores fiquem disponiveis</p>
+
+```shell
+docker run -p 27018:27018 --name mongo-router-vicentin --net mongo-vicentin-network -d mongo mongos --port 27018 --configdb configserver/mongo-config-1:27018,mongo-config-2:27018,mongo-config-3:27018,mongo-config-4:27018 --bind_ip_all
+```
