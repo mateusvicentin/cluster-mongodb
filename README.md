@@ -125,3 +125,26 @@ docker run --name mongo-shard-4a --net mongo-vicentin-network -d mongo mongod --
 ```shell
 docker run --name mongo-shard-4b --net mongo-vicentin-network -d mongo mongod --port 27022 --shardsvr --replSet shard4
 ```
+
+<p>Apos a criação será configurado e iniciado cada um dos shards, para isso é feito uma configuração parecido com a que foi feita nos Servidores, no caso será necessario acessar cada um dos quatro Shards.</p>
+
+<h3>Shard 1</h3>
+
+```shell
+docker exec -it mongo-shard-1a mongosh --port 27019
+```
+<h3>Shard 2</h3>
+
+```shell
+docker exec -it mongo-shard-2a mongosh --port 27020
+```
+<h3>Shard 3</h3>
+
+```shell
+docker exec -it mongo-shard-3a mongosh --port 27021
+```
+<h3>Shard 4</h3>
+
+```shell
+docker exec -it mongo-shard-4a mongosh --port 27022
+```
