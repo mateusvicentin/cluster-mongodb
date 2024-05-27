@@ -51,16 +51,17 @@ docker exec -it mongo-config-1 mongosh --port 27018
 ```
 
 ```shell
-rs.initiate( 
-{
-   _id: "config-servers", 
-   configsvr: true, 
-   version: 1,
-   members: [ 
-    { _id: 0, host: "mongo-config-1:27017" },
-    { _id: 1, host: "mongo-config-2:27017" }, 
-    { _id: 2, host: "mongo-config-3:27017" }
-]
-}
+rs.initiate(
+   {
+      _id: "configserver",
+      configsvr: true,
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-config-1:27018" },
+         { _id: 1, host : "mongo-config-2:27018" },
+         { _id: 2, host : "mongo-config-3:27018" },
+         { _id: 3, host : "mongo-config-4:27018" }
+      ]
+   }
 )
 ```
