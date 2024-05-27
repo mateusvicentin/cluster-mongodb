@@ -66,6 +66,7 @@ rs.initiate(
 )
 ```
 <p>Apos a criação dos quatros containers responsaveis pela configuração do servidores, é utilizado o comando "rs.status()" afim de verificar como ficou a configuração dos containers.</p>
+
 ```shell
 rs.status()
 ```
