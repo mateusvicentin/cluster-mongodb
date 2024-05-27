@@ -72,4 +72,10 @@ rs.status()
 ```
 <img src="imagem1.png" alt="Imagem_1">
 
+<p>No exemplo acima, o container chamado "mongo-config-1" é o Primario, ou seja. Ele é o principal para fazer os processos dentro do MongoDB, e o restante dos servidores são os Secundarios, ou seja. Caso o "mongo-config-1" sofra por interrupção os algum dos outros três assume. Exemplos a baixo.</p>
+
+<h3>Antes de derrubar.</h3>
+
+<img src="imagem1.png" alt="Imagem_1">
+<img src="imagem2.png" alt="Imagem_2">
 
