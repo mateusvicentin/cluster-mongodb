@@ -83,3 +83,25 @@ rs.status()
 
 <img src="imagem3.png" alt="Imagem_3">
 <img src="imagem4.png" alt="Imagem_4">
+
+<p>A troca de servidores está funcionando, apos um cair e o outro assumir, sendo assim podemos dar continuidade na configuração, agora a criação dos Shards</p>
+
+<h3>Shard 1</h3>
+
+```shell
+docker run --name mongo-shard-1a --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard1
+```
+
+```shell
+docker run --name mongo-shard-1b --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard1
+```
+
+<h3>Shard 2</h3>
+
+```shell
+docker run --name mongo-shard-2a --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard2
+```
+
+```shell
+docker run --name mongo-shard-2b --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard2
+```
