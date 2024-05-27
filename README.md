@@ -199,3 +199,8 @@ rs.initiate(
    }
 )
 ```
+
+<p>Da mesma forma do servidor, os shards é responsavel por um primario e outro secundario.</p>
+<img src="imagem5.png" alt="Imagem_5">
+<img src="imagem6.png" alt="Imagem_6">
+
