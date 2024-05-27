@@ -16,34 +16,38 @@
 <h2>Criando o Roteador(Cluster)</h2>
 
 ```shell
-docker network create mongo-cluster-router
+docker network create mongo-vicentin-network
 ```
 <h2>Criando o ConfigServers</h2>
 <h3>Criando o Primeiro </h3>
 
 ```shell
-docker run --name mongo-config-1 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27018
+docker run --name mongo-config-1 --net mongo-vicentin-network -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
 
 <h3>Criando o Segundo</h3>
 
 ```shell
-docker run --name mongo-config-2 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27018
+docker run --name mongo-config-2 --net mongo-vicentin-network -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
 
 <h3>Criando o Terceiro</h3>
 
 ```shell
-docker run --name mongo-config-3 --net mongo-cluster-0 -d mongo mongod --configsvr --replSet config-se
-rvers --port 27018
+docker run --name mongo-config-3 --net mongo-vicentin-network -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
+
+<h3>Criando o Quarto</h3>
+
+```shell
+docker run --name mongo-config-4 --net mongo-vicentin-network -d mongo mongod --configsvr --replSet configserver --port 27018
+```
+
 
 <p>Apos isso é configurado apenas um dos três containers do ConfigServer, irei usar o Primeiro como exemplo.</p>
 
 ```shell
- docker exec -it mongo-config-1 mongosh
+docker exec -it mongo-config-1 mongosh --port 27018
 ```
 
 ```shell
