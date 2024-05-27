@@ -133,18 +133,69 @@ docker run --name mongo-shard-4b --net mongo-vicentin-network -d mongo mongod --
 ```shell
 docker exec -it mongo-shard-1a mongosh --port 27019
 ```
+```shell
+rs.initiate(
+   {
+      _id: "shard1",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-shard-1a:27019" },
+         { _id: 1, host : "mongo-shard-1b:27019" },
+      ]
+   }
+)
+```
 <h3>Shard 2</h3>
 
 ```shell
 docker exec -it mongo-shard-2a mongosh --port 27020
 ```
+```shell
+rs.initiate(
+   {
+      _id: "shard2",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-shard-2a:27020" },
+         { _id: 1, host : "mongo-shard-2b:27020" },
+      ]
+   }
+)
+```
+
 <h3>Shard 3</h3>
 
 ```shell
 docker exec -it mongo-shard-3a mongosh --port 27021
 ```
+```shell
+rs.initiate(
+   {
+      _id: "shard3",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-shard-3a:27021" },
+         { _id: 1, host : "mongo-shard-3b:27021" },
+      ]
+   }
+)
+```
+
 <h3>Shard 4</h3>
 
 ```shell
 docker exec -it mongo-shard-4a mongosh --port 27022
+```
+
+```shell
+rs.initiate(
+   {
+      _id: "shard4",
+      version: 1,
+      members: [
+         { _id: 0, host : "mongo-shard-4a:27022" },
+         { _id: 1, host : "mongo-shard-4b:27022" },
+      ]
+   }
+)
 ```
