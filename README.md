@@ -10,7 +10,7 @@
 <h3>Roteadores:</h3><p>Responsáveis pelas requisições de escrita e leitura.</p>
 <h3>Shards:</h3><p>Guardar os objetos no banco de dados.</p>
 <h3>ConfigServers:</h3><p>Guardar os metadados do nosso cluster.</p>
-
+<p>Vai ser criado um roteador, 4 shards contendo dois containers em cada, totalizando 8, e 4 ConfigServers(Servidores)</p>
 
 
 <h2>Criando o Roteador(Cluster)</h2>
