@@ -209,3 +209,25 @@ rs.initiate(
 ```shell
 docker run -p 27018:27018 --name mongo-router-vicentin --net mongo-vicentin-network -d mongo mongos --port 27018 --configdb configserver/mongo-config-1:27018,mongo-config-2:27018,mongo-config-3:27018,mongo-config-4:27018 --bind_ip_all
 ```
+<p>Por fim, iremos configurar o roteador para que ele conheça os Shards, a configuração é feita pelo seguinte comando.</p>
+
+```shell
+docker exec -it mongo-router-vicentin mongosh --port 27018
+```
+```shell
+sh.addShard("shard1/mongo-shard-1a:27019")
+sh.addShard("shard1/mongo-shard-1b:27019")
+sh.addShard("shard2/mongo-shard-2a:27020")
+sh.addShard("shard2/mongo-shard-2b:27020")
+sh.addShard("shard3/mongo-shard-3a:27021")
+sh.addShard("shard3/mongo-shard-3b:27021")
+sh.addShard("shard4/mongo-shard-4a:27022")
+sh.addShard("shard4/mongo-shard-4b:27022")
+```
+<p>Para verificar, se está tudo certo é so usar o comando "sh.status()" </p>
+
+```shell
+sh.status()
+```
+<img src="imagem7.png" alt="Imagem_7"
+
