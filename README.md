@@ -231,3 +231,5 @@ sh.status()
 ```
 <img src="imagem7.png" alt="Imagem_7">
 
+<p>Agora, o roteador reconhecer os Shard e é possivel usar os serviços</p>
+
