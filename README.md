@@ -89,19 +89,39 @@ rs.status()
 <h3>Shard 1</h3>
 
 ```shell
-docker run --name mongo-shard-1a --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard1
+docker run --name mongo-shard-1a --net mongo-vicentin-network -d mongo mongod --port 27019 --shardsvr --replSet shard1
 ```
 
 ```shell
-docker run --name mongo-shard-1b --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard1
+docker run --name mongo-shard-1b --net mongo-vicentin-network -d mongo mongod --port 27019 --shardsvr --replSet shard1
 ```
 
 <h3>Shard 2</h3>
 
 ```shell
-docker run --name mongo-shard-2a --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard2
+docker run --name mongo-shard-2a --net mongo-vicentin-network -d mongo mongod --port 27020 --shardsvr --replSet shard2
 ```
 
 ```shell
-docker run --name mongo-shard-2b --net mongo-vicentin-network -d mongo mongod --port 27018 --shardsvr --replSet shard2
+docker run --name mongo-shard-2b --net mongo-vicentin-network -d mongo mongod --port 27020 --shardsvr --replSet shard2
+```
+
+<h3>Shard 3</h3>
+
+```shell
+docker run --name mongo-shard-3a --net mongo-vicentin-network -d mongo mongod --port 27021 --shardsvr --replSet shard3
+```
+
+```shell
+docker run --name mongo-shard-3b --net mongo-vicentin-network -d mongo mongod --port 27021 --shardsvr --replSet shard3
+```
+
+<h3>Shard 4</h3>
+
+```shell
+docker run --name mongo-shard-4a --net mongo-vicentin-network -d mongo mongod --port 27022 --shardsvr --replSet shard4
+```
+
+```shell
+docker run --name mongo-shard-4b --net mongo-vicentin-network -d mongo mongod --port 27022 --shardsvr --replSet shard4
 ```
