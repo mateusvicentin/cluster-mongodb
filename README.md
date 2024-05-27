@@ -229,5 +229,5 @@ sh.addShard("shard4/mongo-shard-4b:27022")
 ```shell
 sh.status()
 ```
-<img src="imagem7.png" alt="Imagem_7"
+<img src="imagem7.png" alt="Imagem_7">
 
