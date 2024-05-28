@@ -4,12 +4,11 @@
 
 <h2>Cenario</h2>
 <p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades, para isso será utilizado um Cluster de MongoDB no Docker.</p>
-</br>
 
-<h3>Roteadores:</h3><p>Servidores de Configuração</p>
-<h3>Shards:</h3><p>Partições de Dados</p>
-<h3>ConfigServers:</h3><p>Guardar os metadados do nosso cluster.</p>
-<p>Vai ser criado um roteador, 4 shards contendo dois containers em cada, totalizando 8, e 4 ConfigServers(Servidores)</p>
+<h3>Roteadores:</h3><p>Servidores de Configuração, recebendo a requisição de leitura e escrita e direcionar para a sua partição.</p>
+<h3>Shards:</h3><p>Partições de Dados, são os responsaveis por armazenar os dados, cada Shard fica responsavel por um subconjunto de dados no MongoDB.</p>
+<h3>ConfigServers:</h3><p>Guardar os metadados das partições (shards).</p>
+<p>Para esse projeto será criado um roteador, três ConfigServers e três shards contendo mais dois shards como replicá totalizando 9 Shards no total.</p>
 
 
 <h2>Criando o Roteador(Cluster)</h2>
