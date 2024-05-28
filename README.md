@@ -3,8 +3,7 @@
 </br>
 
 <h2>Cenario</h2>
-<p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades.</p>
-<p>Para isso será utilizado três tipos de serviços diferentes, que são:</p>
+<p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades, para isso será utilizado um Cluster de MongoDB no Docker.</p>
 </br>
 
 <h3>Roteadores:</h3><p>Servidores de Configuração</p>
