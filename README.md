@@ -231,7 +231,7 @@ def gerar_produto_aleatorio():
 <p>Todo database criado é alocado em um dos três shards de forma aleatoria, como a ideia é que seja divido os dados e as informações, o proprio roteador decide em qual deles será mantido a informação.</p>
 
 <h4>Verificando em qual Shard o Database está alocado.</h4>
-<p>Para verificar, acessamos o Roteador e utilizamos novamente do comando "sh.status()"</p>
+<p>Para verificar, acessamos o roteador e utilizamos novamente do comando "sh.status()"</p>
 
 ```shell
 sh.status()
