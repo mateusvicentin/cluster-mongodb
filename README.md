@@ -122,7 +122,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/060e9ab4-5721-4f9d-adf9-64a75ccb64d0" alt="shard2">
 </p>
-<p>Nesse caso do Shard2, o "mongo-shard-2-b" é o principal, então o "mongo-shard-2-a e mongo-shard-2-c" são os secundarios.</p>
+<p align="center"> Nesse caso do Shard2, o "mongo-shard-2-b" é o principal, então o "mongo-shard-2-a e mongo-shard-2-c" são os secundarios.</p>
 
 <h4>Shard3</h4>
 
@@ -155,7 +155,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard3">
 </p>
-<p>Nesse caso do Shard3, o "mongo-shard-3-b" é o principal, então o "mongo-shard-3-a e mongo-shard-3-c" são os secundarios.</p>
+<p align="center"> Nesse caso do Shard3, o "mongo-shard-3-b" é o principal, então o "mongo-shard-3-a e mongo-shard-3-c" são os secundarios.</p>
 
 <p>Apos criar e configurar todos os ConfigServers e fazer o mesmo com o Shard, iremos criar o Routeador e associar todos os ConfigServers a ele, e acessar a configurar dele e associar os Shards a ele tambem, da mesma forma que configuramos os Shards e o ConfigServer</p>
 
