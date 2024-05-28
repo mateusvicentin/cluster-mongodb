@@ -241,7 +241,7 @@ sh.status()
 </p>
 <p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
 
-<p>A ideia é ele seja capaz de lidar com milhões de produtos, então nesse mesmo database e collection irei inserir mais 1950000 produtos de forma aleatoria.</p>
+<p>A ideia é ele seja capaz de lidar com muitos produtos, então nesse mesmo database e collection irei inserir mais 450000 produtos de forma aleatoria.</p>
 
 
 
