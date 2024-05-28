@@ -89,7 +89,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/716bf6d7-e6eb-412a-9730-f7cfc5b5da07" alt="shard1">
 </p>
-<p>Nesse caso do Shard1, o "mongo-shard-1-b" é o principal, então o "mongo-shard-1-a e mongo-shard-1-c" são os secundarios.</p>
+<p align="center"> Nesse caso do Shard1, o "mongo-shard-1-b" é o principal, então o "mongo-shard-1-a e mongo-shard-1-c" são os secundarios.</p>
 
 <h4>Shard2</h4>
 
