@@ -264,5 +264,21 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_filial_C
 collection = db.produtos_estoque_A
 ```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3b54e484-16d2-420a-93a8-67e94d41bced" alt="mongodb3">
+</p>
+<p align="center">Filial A.</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e9c2accb-6bbc-4169-9a74-aa8745372c58" alt="mongodb4">
+</p>
+<p align="center">Filial B.</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
+</p>
+<p align="center">Filial C.</p>
+
+
 
 
