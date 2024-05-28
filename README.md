@@ -10,11 +10,9 @@
 <h3>ConfigServers</h3><p>Guardar os metadados das partições (shards).</p>
 <p>Para esse projeto será criado um roteador, três ConfigServers e três shards contendo mais dois shards como replicá totalizando 9 Shards no total. Foi utilizado o numero impar, pois caso tenha falhas ou problemas com algum dos containers o outro consiga assumir.</p>
 
-
-
-
-  <img src="https://picsum.photos/460/300](https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2eeb4fab-64e5-432b-ad76-1c4c91e9a009">
-
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e246a7c5-b2c8-4cc6-ba8d-2e761d6db8b9" alt="apresentação">
+</p>
 
 <p>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para que não ocorra nenhum problema de comunicação entre eles.</p>
 
