@@ -158,3 +158,4 @@ sh.addShard("shard2/mongo-shard-2-a:27020,mongo-shard-2-b:27020,mongo-shard-2-c:
 ```shell
 sh.addShard("shard3/mongo-shard-3-a:27021,mongo-shard-3-b:27021,mongo-shard-3-c:27021")
 ```
+![image](https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/0adfcc42-87ed-4688-b731-8531a5ea280f)
