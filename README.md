@@ -51,5 +51,88 @@ rs.initiate({
    ]
 })
 ```
+<h2>Criando os Shards</h2>
+<h4>Shard1</h4>
 
+```shell
+docker run --name mongo-shard-1-a --net mongo-vicentin-network-ro -d mongo mongod --port 27019 --shardsvr --replSet shard1
+```
+```shell
+docker run --name mongo-shard-1-b --net mongo-vicentin-network-ro -d mongo mongod --port 27019 --shardsvr --replSet shard1
+```
+```shell
+docker run --name mongo-shard-1-c --net mongo-vicentin-network-ro -d mongo mongod --port 27019 --shardsvr --replSet shard1
+```
+<p>Apos isso vamos configurar o Shard1, acessando de uma forma parecida com a que a gente acessou o ConfigServer, porem dessa vez configurado apenas o Shard1, e fazendo o mesmo com os outros dois shards</p>
+
+```shell
+docker exec -it mongo-shard-1-a mongosh --port 27019 
+```
+```shell
+rs.initiate({
+   _id: "shard1",
+   version: 1,
+   members: [
+      { _id: 0, host: "mongo-shard-1-a:27019" },
+      { _id: 1, host: "mongo-shard-1-b:27019" },
+      { _id: 2, host: "mongo-shard-1-c:27019" }
+   ]
+})
+```
+<h4>Shard2</h4>
+
+```shell
+docker run --name mongo-shard-2-a --net mongo-vicentin-network-ro -d mongo mongod --port 27020 --shardsvr --replSet shard2
+```
+```shell
+docker run --name mongo-shard-2-b --net mongo-vicentin-network-ro -d mongo mongod --port 27020 --shardsvr --replSet shard2
+```
+```shell
+docker run --name mongo-shard-2-c --net mongo-vicentin-network-ro -d mongo mongod --port 27020 --shardsvr --replSet shard2
+```
+<p>Acessando a configurção do Shard2</p>
+
+```shell
+docker exec -it mongo-shard-2-a mongosh --port 27020
+```
+```shell
+docker exec -it mongo-shard-2-a mongosh --port 27020 
+rs.initiate({
+   _id: "shard2",
+   version: 1,
+   members: [
+      { _id: 0, host: "mongo-shard-2-a:27020" },
+      { _id: 1, host: "mongo-shard-2-b:27020" },
+      { _id: 2, host: "mongo-shard-2-c:27020" }
+   ]
+})
+```
+<h4>Shard3</h4>
+
+```shell
+docker run --name mongo-shard-3-a --net mongo-vicentin-network-ro -d mongo mongod --port 27021 --shardsvr --replSet shard3
+```
+```shell
+docker run --name mongo-shard-3-b --net mongo-vicentin-network-ro -d mongo mongod --port 27021 --shardsvr --replSet shard3
+```
+```shell
+docker run --name mongo-shard-3-c --net mongo-vicentin-network-ro -d mongo mongod --port 27021 --shardsvr --replSet shard3
+```
+<p>Acessando a configurção do Shard3</p>
+
+```shell
+docker exec -it mongo-shard-3-a mongosh --port 27021 
+```
+```shell
+docker exec -it mongo-shard-3-a mongosh --port 27021 
+rs.initiate({
+   _id: "shard3",
+   version: 1,
+   members: [
+      { _id: 0, host: "mongo-shard-3-a:27021" },
+      { _id: 1, host: "mongo-shard-3-b:27021" },
+      { _id: 2, host: "mongo-shard-3-c:27021" }
+   ]
+}) 
+```
 
