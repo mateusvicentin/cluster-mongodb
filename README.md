@@ -249,5 +249,20 @@ sh.status()
 
 <p>Agora, irei criar três filiais, com os nomes "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C", nessas irei adicionar apenas 500,000 produtos para começar a inserção nas filiais</p>
 
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_A
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_B
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_C
+collection = db.produtos_estoque_A
+```
 
 
