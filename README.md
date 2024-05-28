@@ -152,6 +152,11 @@ rs.initiate({
    ]
 }) 
 ```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard2">
+</p>
+<p>Nesse caso do Shard3, o "mongo-shard-3-b" é o principal, então o "mongo-shard-3-a e mongo-shard-3-c" são os secundarios.</p>
+
 <p>Apos criar e configurar todos os ConfigServers e fazer o mesmo com o Shard, iremos criar o Routeador e associar todos os ConfigServers a ele, e acessar a configurar dele e associar os Shards a ele tambem, da mesma forma que configuramos os Shards e o ConfigServer</p>
 
 <h2>Criando o Roteador</h2>
