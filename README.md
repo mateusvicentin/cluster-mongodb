@@ -228,6 +228,17 @@ def gerar_produto_aleatorio():
 </p>
 <p align="center"> Apos a inserção de 50000 produtos, ao conectarmos ao banco pelo Software do "MongoDB Compass" utilizando o "mongodb://localhost:27018" teremos essa tela ao acessar a database e o collection criado a partir do script.</p>
 
+<h4>Verificando em qual Shard o Database está alocado.</h4>
+<p>Para verificar, acessamos o Roteador e utilizamos novamente do comando "sh.status()"</p>
+
+```shell
+sh.status()
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
+</p>
+<p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
+
 
 
 
