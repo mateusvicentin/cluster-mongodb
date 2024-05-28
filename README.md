@@ -53,6 +53,10 @@ rs.initiate({
    ]
 })
 ```
+<p align="center">
+  <img src="[https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e246a7c5-b2c8-4cc6-ba8d-2e761d6db8b9](https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/b5f01578-27b8-4d45-b8ac-e09b1106aa83)" alt="configserver">
+</p>
+
 <h2>Criando os Shards</h2>
 <h4>Shard1</h4>
 
