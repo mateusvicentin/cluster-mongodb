@@ -135,4 +135,26 @@ rs.initiate({
    ]
 }) 
 ```
+<p>Apos criar e configurar todos os ConfigServers e fazer o mesmo com o Shard, iremos criar o Routeador e associar todos os ConfigServers a ele, e acessar a configurar dele e associar os Shards a ele tambem, da mesma forma que configuramos os Shards e o ConfigServer</p>
 
+<h2>Criando o Roteador</h2>
+
+```shell
+docker run -p 27018:27018 --name mongo-router-vicentin-1 --net mongo-vicentin-network-ro -d mongo mongos --port 27018 --configdb configserver/mongo-config1:27018,mongo-config2:27018,mongo-config3:27018 --bind_ip_all
+```
+<p>Acessando a configuração do Roteador</p>
+
+```shell
+docker exec -it mongo-router-vicentin-1 mongosh --port 27018 
+```
+<h2>Adicionando os Shards ao roteador</h2>
+
+```shell
+sh.addShard("shard1/mongo-shard-1-a:27019,mongo-shard-1-b:27019,mongo-shard-1-c:27019")
+```
+```shell
+sh.addShard("shard2/mongo-shard-2-a:27020,mongo-shard-2-b:27020,mongo-shard-2-c:27020")
+```
+```shell
+sh.addShard("shard3/mongo-shard-3-a:27021,mongo-shard-3-b:27021,mongo-shard-3-c:27021")
+```
