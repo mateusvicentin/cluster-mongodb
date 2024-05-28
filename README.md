@@ -242,6 +242,10 @@ sh.status()
 <p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
 
 <p>A ideia é ele seja capaz de lidar com muitos produtos, então nesse mesmo database e collection irei inserir mais 450000 produtos de forma aleatoria.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2b07b206-664f-4d40-ab46-9b9cfb48957d" alt="mongodb2">
+</p>
+<p align="center">O databse apos a inserção de mais 450000 produtos.</p>
 
 
 
