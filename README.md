@@ -119,6 +119,11 @@ rs.initiate({
    ]
 })
 ```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/060e9ab4-5721-4f9d-adf9-64a75ccb64d0" alt="shard2">
+</p>
+<p>Nesse caso do Shard2, o "mongo-shard-2-b" é o principal, então o "mongo-shard-2-a e mongo-shard-2-c" são os secundarios.</p>
+
 <h4>Shard3</h4>
 
 ```shell
