@@ -247,7 +247,7 @@ sh.status()
 </p>
 <p align="center">O database apos a inserção de mais 3,250,000 produtos.</p>
 
-<p>Agora, irei criar três filiais, com os nomes "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C", nessas irei adicionar apenas 500,000 produtos para começar a inserção nas filiais</p>
+<p>Agora, irei criar três filiais, com os nomes "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C", na filial A irei adicionar 1,000,000 produtos e na restante irei adicionar apenas 500,000</p>
 
 ```python
 client = MongoClient('localhost', 27018)
