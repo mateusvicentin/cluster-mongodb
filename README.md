@@ -188,7 +188,7 @@ sh.status()
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c183f15-f149-4877-be48-e3431505a9b8" alt="roteador">
 </p>
-<p>Teremos uma tela parecida com essa.</p>
+<p align="center"> Teremos uma tela parecida com essa, os shards separados cada um com seu conjunto de servidores.</p>
 
 
 
