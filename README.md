@@ -200,6 +200,8 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
+<p>O database irá chamar "vicentin_matriz" e a collection "produtos_estoque_A"</p>
+
 <h4>Gerar Dados</h4>
 
 ```python
@@ -219,7 +221,9 @@ def gerar_produto_aleatorio():
         "data_validade": data_validade
     }
 ```
-<p>Nessa primeira database e collection, irei inserir 50000 produtos.</p>
+<p>Foi criado uma variavel "nomes_produtos" contendo nomes de produtos encontrados em supermercados, e quando forem inseridos o script irá escolher um dos nomes informados para inserir no banco.Nessa primeira database e collection, irei inserir 50000 produtos</p>
+
+
 
 
 
