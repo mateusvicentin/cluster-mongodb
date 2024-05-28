@@ -23,12 +23,12 @@ docker network create mongo-vicentin-network-ro
 ```shell
 docker run --name mongo-config1 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
-<h4>ConfigServer1</h4>
+<h4>ConfigServer2</h4>
 
 ```shell
 docker run --name mongo-config2 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
-<h4>ConfigServer1</h4>
+<h4>ConfigServer3</h4>
 
 ```shell
 docker run --name mongo-config3 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
