@@ -153,7 +153,7 @@ rs.initiate({
 }) 
 ```
 <p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard2">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard3">
 </p>
 <p>Nesse caso do Shard3, o "mongo-shard-3-b" é o principal, então o "mongo-shard-3-a e mongo-shard-3-c" são os secundarios.</p>
 
@@ -180,4 +180,16 @@ sh.addShard("shard2/mongo-shard-2-a:27020,mongo-shard-2-b:27020,mongo-shard-2-c:
 ```shell
 sh.addShard("shard3/mongo-shard-3-a:27021,mongo-shard-3-b:27021,mongo-shard-3-c:27021")
 ```
+<p>Para verificar se está tudo funcionando, é utilizado o comando "sh.status()"</p>
+
+```shell
+sh.status()
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c183f15-f149-4877-be48-e3431505a9b8" alt="roteador">
+</p>
+<p>Teremos uma tela parecida com essa.</p>
+
+
+
 
