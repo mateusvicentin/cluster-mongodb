@@ -221,7 +221,7 @@ def gerar_produto_aleatorio():
         "data_validade": data_validade
     }
 ```
-<p>Foi criado uma variavel "nomes_produtos" contendo nomes de produtos encontrados em supermercados, e quando forem inseridos o script irá escolher um dos nomes informados para inserir no banco.Nessa primeira database e collection, irei inserir 50000 produtos</p>
+<p>Foi criado uma variavel "nomes_produtos" contendo nomes de produtos encontrados em supermercados, e quando forem inseridos o script irá escolher um dos nomes informados para inserir no banco.Nessa primeira database e collection, irei inserir 50,000 produtos</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/36605196-d8d6-4e30-9cb6-0b37f921db6c" alt="mongodb1">
@@ -241,11 +241,12 @@ sh.status()
 </p>
 <p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
 
-<p>A ideia é ele seja capaz de lidar com muitos produtos, então nesse mesmo database e collection irei inserir mais 450000 produtos de forma aleatoria.</p>
+<p>A ideia é ele seja capaz de lidar com muitos produtos, então nesse mesmo database e collection irei inserir mais 3,250,000 produtos de forma aleatoria.</p>
 <p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2b07b206-664f-4d40-ab46-9b9cfb48957d" alt="mongodb2">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
-<p align="center">O databse apos a inserção de mais 450000 produtos.</p>
+<p align="center">O databse apos a inserção de mais 3,250,000 produtos.</p>
+
 
 
 
