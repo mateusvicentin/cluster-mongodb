@@ -190,6 +190,36 @@ sh.status()
 </p>
 <p align="center"> Teremos uma tela parecida com essa, os shards separados cada um com seu conjunto de servidores.</p>
 
+<h2>Criando o Banco de Dados e Inserindo os Dados</h2>
+<p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco e cria o database e a collection com a inserção de dados aleatorios, para o projeto foi criado os seguintes dados. ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</p>
+
+<h4>Conexão</h4>
+
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_matriz
+collection = db.produtos_estoque_A
+```
+<h4>Gerar Dados</h4>
+
+```python
+def gerar_produto_aleatorio():
+    id_produto = random.randint(0, 999999)
+    nome_produto = random.choice(nomes_produtos)
+    preco_compra = round(random.uniform(1.0, 80.0), 2)
+    quantidade = random.randint(1, 100)
+    data_entrada = datetime.now() - timedelta(days=random.randint(1, 365))
+    data_validade = data_entrada + timedelta(days=random.randint(1, 365))  # Data de validade após a entrada
+    return {
+        "id": id_produto,
+        "nome": nome_produto,
+        "preco_compra": preco_compra,
+        "quantidade": quantidade,
+        "data_entrada": data_entrada,
+        "data_validade": data_validade
+    }
+```
+<p>Nessa primeira database e collection, irei inserir 50000 produtos.</p>
 
 
 
