@@ -10,7 +10,7 @@
 <h3>ConfigServers:</h3><p>Guardar os metadados das partições (shards).</p>
 <p>Para esse projeto será criado um roteador, três ConfigServers e três shards contendo mais dois shards como replicá totalizando 9 Shards no total.</p>
 
-<img src="imagem7.png" alt="Imagem_7">
+<img src="imagem1.png" alt="Imagem_7">
 
 <h3>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para que não ocorra nenhum problema de comunicação entre eles.</h3>
 
