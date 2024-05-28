@@ -206,7 +206,7 @@ collection = db.produtos_estoque_A
 
 ```python
 def gerar_produto_aleatorio():
-    id_produto = random.randint(0, 999999)
+    id_produto = random.randint(0, 99999999)
     nome_produto = random.choice(nomes_produtos)
     preco_compra = round(random.uniform(1.0, 80.0), 2)
     quantidade = random.randint(1, 100)
@@ -241,6 +241,7 @@ sh.status()
 </p>
 <p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
 
+<p>A ideia é ele seja capaz de lidar com milhões de produtos, então nesse mesmo database e collection irei inserir mais 1950000 de forma aleatoria.</p>
 
 
 
