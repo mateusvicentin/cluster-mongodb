@@ -223,6 +223,10 @@ def gerar_produto_aleatorio():
 ```
 <p>Foi criado uma variavel "nomes_produtos" contendo nomes de produtos encontrados em supermercados, e quando forem inseridos o script irá escolher um dos nomes informados para inserir no banco.Nessa primeira database e collection, irei inserir 50000 produtos</p>
 
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/36605196-d8d6-4e30-9cb6-0b37f921db6c" alt="mongodb1">
+</p>
+<p align="center"> Apos a inserção de 50000 produtos, ao conectarmos ao banco pelo Software do "MongoDB Compass" utilizando o "mongodb://localhost:27018" teremos essa tela ao acessar a database e o collection criado a partir do script.</p>
 
 
 
