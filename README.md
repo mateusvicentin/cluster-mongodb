@@ -228,6 +228,8 @@ def gerar_produto_aleatorio():
 </p>
 <p align="center"> Apos a inserção de 50000 produtos, ao conectarmos ao banco pelo Software do "MongoDB Compass" utilizando o "mongodb://localhost:27018" teremos essa tela ao acessar a database e o collection criado a partir do script.</p>
 
+<p>Todo database criado é alocado em um dos três shards de forma aleatoria, como a ideia é que seja divido os dados e as informações, o proprio roteador decide em qual deles será mantido a informação.</p>
+
 <h4>Verificando em qual Shard o Database está alocado.</h4>
 <p>Para verificar, acessamos o Roteador e utilizamos novamente do comando "sh.status()"</p>
 
