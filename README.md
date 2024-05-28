@@ -245,8 +245,9 @@ sh.status()
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
-<p align="center">O databse apos a inserção de mais 3,250,000 produtos.</p>
+<p align="center">O database apos a inserção de mais 3,250,000 produtos.</p>
 
+<p>Agora, irei criar três filiais, com os nomes "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C", nessas irei adicionar apenas 500,000 produtos para começar a inserção nas filiais</p>
 
 
 
