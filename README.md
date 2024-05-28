@@ -12,7 +12,7 @@
 
 <img src="imagem1.png" alt="Imagem_7">
 
-<h3>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para que não ocorra nenhum problema de comunicação entre eles.</h3>
+<p>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para que não ocorra nenhum problema de comunicação entre eles.</p>
 
 ```shell
 docker network create mongo-vicentin-network-ro
@@ -34,7 +34,7 @@ docker run --name mongo-config2 --net mongo-vicentin-network-ro -d mongo mongod 
 docker run --name mongo-config3 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
 
-<h3>Agora, vamos acessar um dos três ConfigServers e realizar a configuração de inicialização, configurando para que os três se comuniquem para que um deles seja o Principal e os outros dois seja o Secundario, caso tenha algum problema com o Principal.</h3>
+<p>Agora, vamos acessar um dos três ConfigServers e realizar a configuração de inicialização, configurando para que os três se comuniquem para que um deles seja o Principal e os outros dois seja o Secundario, caso tenha algum problema com o Principal.</p>
 
 ```shell
 docker exec -it mongo-config1 mongosh --port 27018
