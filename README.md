@@ -34,3 +34,22 @@ docker run --name mongo-config2 --net mongo-vicentin-network-ro -d mongo mongod 
 docker run --name mongo-config3 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
 
+<h3>Agora, vamos acessar um dos três ConfigServers e realizar a configuração de inicialização, configurando para que os três se comuniquem para que um deles seja o Principal e os outros dois seja o Secundario, caso tenha algum problema com o Principal.</h3>
+
+```shell
+docker exec -it mongo-config1 mongosh --port 27018
+```
+```shell
+rs.initiate({
+   _id: "configserver",
+   configsvr: true,
+   version: 1,
+   members: [
+      { _id: 0, host: "mongo-config1:27018" },
+      { _id: 1, host: "mongo-config2:27018" },
+      { _id: 2, host: "mongo-config3:27018" }
+   ]
+})
+```
+
+
