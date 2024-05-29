@@ -2,18 +2,18 @@
 <p>Este projeto tem como objetivo aplicar conceitos de dados em um ambiente de banco de dados distribuído, projetando um sistema escalável e eficientemente particionado para lidar com um grande volume de dados. O sistema permite o monitoramento dos clusters presentes no projeto e, caso algum deles pare de funcionar, o Zabbix realizará a notificação.</p>
 
 <h2>Cenario</h2>
-<p>O cenario utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermarcados que possui filiais em diferentes cidades, para isso será utilizado um Cluster de MongoDB no Docker.</p>
+<p>O cenário utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermercados com filiais em diferentes cidades. Para isso, será utilizado um Cluster de MongoDB no Docker.</p>
 
-<h3>Roteadores</h3><p>Servidores de Configuração, recebendo a requisição de leitura e escrita e direcionar para a sua partição.</p>
-<h3>Shards</h3><p>Partições de Dados, são os responsaveis por armazenar os dados, cada Shard fica responsavel por um subconjunto de dados no MongoDB.</p>
-<h3>ConfigServers</h3><p>Guardar os metadados das partições (shards).</p>
-<p>Para esse projeto será criado um roteador, três ConfigServers e três shards contendo mais dois shards como replicá totalizando 9 Shards no total. Foi utilizado o numero impar, pois caso tenha falhas ou problemas com algum dos containers o outro consiga assumir.</p>
+<h3>Roteadores</h3><p>Servidores de configuração, responsáveis por receber requisições de leitura e escrita e direcioná-las para a partição correta.</p>
+<h3>Shards</h3><p>Partições de dados, responsáveis por armazenar os dados. Cada shard é responsável por um subconjunto de dados no MongoDB.</p>
+<h3>ConfigServers</h3><p>Servidores responsáveis por armazenar os metadados das partições (shards).</p>
+<p>Para este projeto, será criado um roteador, três ConfigServers e três shards, cada um contendo mais dois shards como réplica, totalizando nove shards. Foi utilizado um número ímpar para garantir que, em caso de falha de um dos containers, os outros possam assumir.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e246a7c5-b2c8-4cc6-ba8d-2e761d6db8b9" alt="apresentação">
 </p>
 
-<p>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para que não ocorra nenhum problema de comunicação entre eles.</p>
+<p>Antes de criar o roteador, vamos criar uma rede e colocar todos os containers na mesma rede, para evitar problemas de comunicação entre eles.</p>
 
 ```shell
 docker network create mongo-vicentin-network-ro
@@ -35,7 +35,7 @@ docker run --name mongo-config2 --net mongo-vicentin-network-ro -d mongo mongod 
 docker run --name mongo-config3 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
 ```
 
-<p>Agora, vamos acessar um dos três ConfigServers e realizar a configuração de inicialização, configurando para que os três se comuniquem para que um deles seja o Principal e os outros dois seja o Secundario, caso tenha algum problema com o Principal.</p>
+<p>Agora, vamos acessar um dos três ConfigServers e realizar a configuração de inicialização, configurando-os para que se comuniquem entre si, de forma que um deles seja o principal e os outros dois sejam secundários, assumindo o papel de principal caso o principal atual falhe.</p>
 
 ```shell
 docker exec -it mongo-config1 mongosh --port 27018
@@ -55,7 +55,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d0050455-3383-4227-ac52-922bc7c0dd3d" alt="configserver">
 </p>
-<p>Nesse caso o "mongo-config1" é o principal, o "mongo-config2 e mongo-config3" são os secundarios, caso o principal perca comunicação ou sofra interrupções, um dos outros dois irá assumir e virar o principal.</p>
+<p>Nesse caso, o mongo-config1 é o principal, e os mongo-config2 e mongo-config3 são os secundários. Caso o principal perca comunicação ou sofra interrupções, um dos outros dois assumirá o papel de principal.</p>
 
 <h2>Criando os Shards</h2>
 <h4>Shard1</h4>
@@ -69,7 +69,7 @@ docker run --name mongo-shard-1-b --net mongo-vicentin-network-ro -d mongo mongo
 ```shell
 docker run --name mongo-shard-1-c --net mongo-vicentin-network-ro -d mongo mongod --port 27019 --shardsvr --replSet shard1
 ```
-<p>Apos isso vamos configurar o Shard1, acessando de uma forma parecida com a que a gente acessou o ConfigServer, porem dessa vez configurado apenas o Shard1, e fazendo o mesmo com os outros dois shards</p>
+<p>Após isso, vamos configurar o shard1, acessando-o de uma forma similar à que acessamos o ConfigServer, mas configurando apenas o shard1, e realizando o mesmo procedimento com os outros dois shards.</p>
 
 ```shell
 docker exec -it mongo-shard-1-a mongosh --port 27019 
@@ -88,7 +88,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/716bf6d7-e6eb-412a-9730-f7cfc5b5da07" alt="shard1">
 </p>
-<p align="center"> Nesse caso do Shard1, o "mongo-shard-1-b" é o principal, então o "mongo-shard-1-a e mongo-shard-1-c" são os secundarios.</p>
+<p align="center">No caso do shard1, o mongo-shard-1-b é o principal, e os mongo-shard-1-a e mongo-shard-1-c são os secundários.</p>
 
 <h4>Shard2</h4>
 
@@ -121,7 +121,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/060e9ab4-5721-4f9d-adf9-64a75ccb64d0" alt="shard2">
 </p>
-<p align="center"> Nesse caso do Shard2, o "mongo-shard-2-b" é o principal, então o "mongo-shard-2-a e mongo-shard-2-c" são os secundarios.</p>
+<p align="center">No caso do shard2, o "mongo-shard-2-b" é o principal, e os "mongo-shard-2-a" e "mongo-shard-2-c" são os secundários.</p>
 
 <h4>Shard3</h4>
 
@@ -154,9 +154,9 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard3">
 </p>
-<p align="center"> Nesse caso do Shard3, o "mongo-shard-3-b" é o principal, então o "mongo-shard-3-a e mongo-shard-3-c" são os secundarios.</p>
+<p align="center">No caso do shard3, o "mongo-shard-3-a" é o principal, e os "mongo-shard-3-b" e "mongo-shard-3-c" são os secundários.</p>
 
-<p>Apos criar e configurar todos os ConfigServers e fazer o mesmo com o Shard, iremos criar o Routeador e associar todos os ConfigServers a ele, e acessar a configurar dele e associar os Shards a ele tambem, da mesma forma que configuramos os Shards e o ConfigServer</p>
+<p>Após a configuração dos ConfigServers e dos Shards, vamos configurar o Roteador. É através do Roteador que faremos as requisições de leitura e escrita no MongoDB.</p>
 
 <h2>Criando o Roteador</h2>
 
@@ -188,6 +188,7 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c183f15-f149-4877-be48-e3431505a9b8" alt="roteador">
 </p>
 <p align="center"> Teremos uma tela parecida com essa, os shards separados cada um com seu conjunto de servidores.</p>
+<p>Agora temos um Cluster MongoDB utilizando Docker, com um roteador configurado para direcionar as requisições de leitura e escrita para os shards corretos, além de três ConfigServers configurados para se comunicarem entre si, garantindo a redundância do sistema em caso de falha.</p>
 
 <h2>Configurando o Zabbix para monitoramento dos Containers</h2>
 <p>Nesse processo, irei criar os containers responsaveis para subir o servidor do Zabbix, para que funcione sem nenhum tipo de problema irei adicionar os containers do Zabbix dentro da rede "mongo-vicentin-network-ro" para que eles fiquem na mesma rede.</p>
