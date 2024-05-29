@@ -286,4 +286,12 @@ collection = db.produtos_estoque_A
 </p>
 <p align="center">Como pode ser visto ao desligar o cluster, pode ser que o Database troque de Shard de forma automatica.</p>
 
+<p>Vamos verificar os Databases criados anteriormente, "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C" em qual Shard cada um dele está alocado. </p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
+</p>
+<p align="center">Nesse caso o Database "vicentin_filial_A" está alocado ao shard1, e os "vicentin_filial_B" e "vicentin_filial_C" estão alocados ao shard3 </p>
+
+
 
