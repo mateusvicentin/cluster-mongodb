@@ -370,6 +370,32 @@ collection = db.produtos_estoque_A
 </p>
 <h2>Atualização de Inventario:</b></h2>
 <p>Irei consultar dentro do MongoDB, para facilitar apenas uma informação. Irei buscar o ID: <b>81063928</b></p>
+
+```python
+produto_ids = collection.distinct("id")
+print(f"IDs de produtos disponíveis: {produto_ids[:5]}... (total de {len(produto_ids)})")
+
+product_id_to_update = int(input("Digite o ID do produto que deseja atualizar: "))
+
+if product_id_to_update not in produto_ids:
+    print("ID do produto não encontrado.")
+else:
+    new_quantity = int(input("Digite a nova quantidade para o produto: "))
+
+    start_time = time.time()
+
+    update_result = collection.update_one(
+        {"id": product_id_to_update},
+        {"$set": {"quantidade": new_quantity, "data_entrada": datetime.now()}}
+    )
+
+    end_time = time.time()
+    execution_time = end_time - start_time
+
+    print(f"Produto com ID {product_id_to_update} atualizado.")
+    print(f"Tempo de execução: {execution_time:.4f} segundos")
+```
+
 <h4>Antes:</b></h4>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2ae4bdbc-e3df-4177-b25f-e60555325f14" alt="mongodb7">
