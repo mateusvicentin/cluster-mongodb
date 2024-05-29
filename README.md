@@ -290,6 +290,12 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
 </p>
 
+<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database "vicentin_matriz" foi automaticamente transferido do Shard3 para o Shard2.</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
+</p>
+
 
 <p>A ideia é lidar com milhares de produtos. Portanto, neste mesmo database e collection, inseriremos mais 3.250.000 produtos aleatoriamente.</p>
 <p align="center">
@@ -323,12 +329,6 @@ collection = db.produtos_estoque_A
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
-</p>
-
-<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database "vicentin_matriz" foi automaticamente transferido do Shard3 para o Shard2.</p>
-
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
 </p>
 
 <p>Vamos verificar em quais shards os databases "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C" estão alocados.</p>
