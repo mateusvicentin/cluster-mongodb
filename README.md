@@ -341,7 +341,7 @@ db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
 
-<h4>Consulta total de documentos do database <b>vicentin_matriz</b> e da collection <b>produtos_estoque_A</b>.</h4>
+<h3>Consulta total de documentos do database <b>vicentin_matriz</b> e da collection <b>produtos_estoque_A</b>.</h3>
 <p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
 
 ```python
