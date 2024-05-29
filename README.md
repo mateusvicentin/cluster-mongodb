@@ -369,7 +369,6 @@ collection = db.produtos_estoque_A
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8a0ab321-4eaa-46c6-ba19-259d265c41f6" alt="mongodb7">
 </p>
 <h2>Atualização de Inventario:</b></h2>
-<p>Irei consultar dentro do MongoDB, para facilitar apenas uma informação. Irei buscar o ID: <b>81063928</b></p>
 
 ```python
 produto_ids = collection.distinct("id")
@@ -395,6 +394,7 @@ else:
     print(f"Produto com ID {product_id_to_update} atualizado.")
     print(f"Tempo de execução: {execution_time:.4f} segundos")
 ```
+<p>Irei consultar dentro do MongoDB, para facilitar apenas uma informação. Irei buscar o ID: <b>81063928</b></p>
 
 <h4>Antes:</b></h4>
 <p align="center">
