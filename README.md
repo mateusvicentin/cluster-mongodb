@@ -1,7 +1,7 @@
 <h1 align="center">Cluster MongoDB utilizando Docker e Monitoramento dos Containers via Zabbix</h1>
 <p>Este projeto tem como objetivo aplicar conceitos de dados em um ambiente de banco de dados distribuído, projetando um sistema escalável e eficientemente particionado para lidar com um grande volume de dados. O sistema permite o monitoramento dos clusters presentes no projeto e, caso algum deles pare de funcionar, o Zabbix realizará a notificação.</p>
 
-<h2>Cenario</h2>
+<h2>Cenario:</h2>
 <p>O cenário utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermercados com filiais em diferentes cidades. Para isso, será utilizado um Cluster de MongoDB no Docker.</p>
 
 <h3>Roteadores</h3><p>Servidores de configuração, responsáveis por receber requisições de leitura e escrita e direcioná-las para a partição correta.</p>
@@ -18,8 +18,8 @@
 ```shell
 docker network create mongo-vicentin-network-ro
 ```
-<h2>Criando os ConfigServers</h2>
-<h4>ConfigServer1</h4>
+<h2>Criando os ConfigServers:</h2>
+<h4>ConfigServers</h4>
 
 ```shell
 docker run --name mongo-config1 --net mongo-vicentin-network-ro -d mongo mongod --configsvr --replSet configserver --port 27018
@@ -57,7 +57,7 @@ rs.initiate({
 </p>
 <p>Nesse caso, o <b>mongo-config1</b> é o principal, e os <b>mongo-config2</b> e <b>mongo-config3</b> são os secundários. Caso o principal perca comunicação ou sofra interrupções, um dos outros dois assumirá o papel de principal.</p>
 
-<h2>Criando os Shards</h2>
+<h2>Criando os Shards:</h2>
 <h4>Shard1</h4>
 
 ```shell
@@ -155,7 +155,7 @@ rs.initiate({
 
 <p>Após a configuração dos ConfigServers e dos Shards, vamos configurar o Roteador. É através do Roteador que faremos as requisições de leitura e escrita no MongoDB.</p>
 
-<h2>Criando o Roteador</h2>
+<h2>Criando o Roteador:</h2>
 
 ```shell
 docker run -p 27018:27018 --name mongo-router-vicentin-1 --net mongo-vicentin-network-ro -d mongo mongos --port 27018 --configdb configserver/mongo-config1:27018,mongo-config2:27018,mongo-config3:27018 --bind_ip_all
@@ -243,7 +243,7 @@ docker network inspect mongo-vicentin-network-ro
 </p>
 <p>O monitoramento está funcionando corretamente. Caso um container perca conexão ou pare de funcionar, será exibido no dashboard do Zabbix.</p>
 
-<h2>Criando o Banco de Dados e Inserindo os Dados</h2>
+<h2>Criando o Banco de Dados e Inserindo os Dados:</h2>
 <p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco de dados, cria o database e a collection, e insere dados aleatórios. Para o projeto, foram definidos os seguintes campos: <b>("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</b>.</p>
 
 <h4>Conexão</h4>
@@ -332,7 +332,7 @@ collection = db.produtos_estoque_A
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
 </p>
 
-<h2>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais.</h2>
+<h2>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais:</h2>
 <p>Irei aproveitar a conexão feita anteriormente para adicionar os produtos, então será utilizado o mesmo método.</p>
 
 ```python
@@ -341,7 +341,7 @@ db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
 
-<h2>Consulta total de documentos</b>.</h2>
+<h2>Consulta total de documentos:</b></h2>
 <p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
 
 ```python
