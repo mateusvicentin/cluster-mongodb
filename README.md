@@ -1,5 +1,5 @@
 <h1 align="center">Cluster MongoDB utilizando o Docker e Monitorando os Containers via Zabbix</h1>
-<p align="center">Projeto tem como o objetivo aplicar conceitos de dados em um amiente de banco de dados distruido. Projentando um sistema escalável e eficientemente particionado para lidar com um grade volume de dados.</p>
+<p align="center">Projeto tem como o objetivo aplicar conceitos de dados em um amiente de banco de dados distruido. Projentando um sistema escalável e eficientemente particionado para lidar com um grade volume de dados, podendo monitorar os clusters presentes no projeto, e caso algum deles pare de funcionar o mesmo seja notificado pelo Zabbix.</p>
 </br>
 
 <h2>Cenario</h2>
