@@ -292,13 +292,6 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
 </p>
 
-<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database <b>vicentin_matriz</b> foi automaticamente transferido do Shard3 para o Shard2.</p>
-
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
-</p>
-
-
 <p>A ideia é lidar com milhares de produtos. Portanto, neste mesmo database e collection, inseriremos mais 3.250.000 produtos aleatoriamente.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
