@@ -400,5 +400,12 @@ else:
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2ae4bdbc-e3df-4177-b25f-e60555325f14" alt="mongodb7">
 </p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/7ba66f51-55a3-4c87-a354-77c9e483e79e" alt="mongodb7">
+</p>
+<h4>Depois:</b></h4>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d9a0ed62-a063-4c77-aa08-629183361153" alt="mongodb7">
+</p>
 
 
