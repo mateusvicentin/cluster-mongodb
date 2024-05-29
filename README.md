@@ -165,7 +165,7 @@ docker run -p 27018:27018 --name mongo-router-vicentin-1 --net mongo-vicentin-ne
 ```shell
 docker exec -it mongo-router-vicentin-1 mongosh --port 27018 
 ```
-<h2>Adicionando os Shards ao roteador</h2>
+<h2>Adicionando os Shards ao roteador:</h2>
 
 ```shell
 sh.addShard("shard1/mongo-shard-1-a:27019,mongo-shard-1-b:27019,mongo-shard-1-c:27019")
