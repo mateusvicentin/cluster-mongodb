@@ -187,7 +187,7 @@ sh.status()
 <p>Agora temos um Cluster MongoDB utilizando Docker, com um roteador configurado para direcionar as requisições de leitura e escrita para os shards corretos, além de três ConfigServers configurados para se comunicarem entre si, garantindo a redundância do sistema em caso de falha.</p>
 
 <h2>Configurando o Zabbix para monitoramento dos Containers</h2>
-<p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede <b> "mongo-vicentin-network-ro"</b> para que todos estejam na mesma rede do MongoDB.</p>
+<p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede <b> mongo-vicentin-network-ro</b> para que todos estejam na mesma rede do MongoDB.</p>
 
 ```shell
 docker run --name mysql-server -t -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network-ro --restart unless-stopped -d mysql:8.0-oracle --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
@@ -212,7 +212,7 @@ docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-my
 ```shell
 docker network inspect mongo-vicentin-network-ro
 ```
-<p>Utilizando o "mongo-config1" como exemplo, verificamos que o IP dele é 172.26.0.6.</p>
+<p>Utilizando o <b>mongo-config1"</b> como exemplo, verificamos que o IP dele é <b>172.26.0.6</b>.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d1df5d89-7608-49cf-b734-4e11d955165c" alt="shell">
 </p>
@@ -244,7 +244,7 @@ docker network inspect mongo-vicentin-network-ro
 <p>O monitoramento está funcionando corretamente. Caso um container perca conexão ou pare de funcionar, será exibido no dashboard do Zabbix.</p>
 
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
-<p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco de dados, cria o database e a collection, e insere dados aleatórios. Para o projeto, foram definidos os seguintes campos: ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade").</p>
+<p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco de dados, cria o database e a collection, e insere dados aleatórios. Para o projeto, foram definidos os seguintes campos: <b>("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</b>.</p>
 
 <h4>Conexão</h4>
 
@@ -253,7 +253,7 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
-<p>O database será denominado vicentin_matriz e a collection produtos_estoque_A.</p>
+<p>O database será denominado <b>vicentin_matriz</b> e a collection <b>produtos_estoque_A</b>.</p>
 
 <h4>Gerar Dados</h4>
 
@@ -279,11 +279,11 @@ def gerar_produto_aleatorio():
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/36605196-d8d6-4e30-9cb6-0b37f921db6c" alt="mongodb1">
 </p>
-<p> Após a inserção de 50.000 produtos, ao conectar ao banco pelo software "MongoDB Compass" utilizando "mongodb://localhost:27018", teremos essa tela ao acessar a database e a collection criada pelo script.</p>
+<p> Após a inserção de 50.000 produtos, ao conectar ao banco pelo software <b>MongoDB Compass</b> utilizando <b>mongodb://localhost:27018</b>, teremos essa tela ao acessar a database e a collection criada pelo script.</p>
 <p>Todo database criado é alocado em um dos três shards de forma aleatória. Como a ideia é que os dados e informações sejam divididos, o próprio roteador decide em qual shard a informação será mantida.</p>
 
 <h4>Verificando em qual Shard o Database está alocado.</h4>
-<p>Para verificar, acessamos o roteador e utilizamos novamente o comando "sh.status()".</p>
+<p>Para verificar, acessamos o roteador e utilizamos novamente o comando <code>sh.status()</code>.</p>
 
 ```shell
 sh.status()
@@ -292,7 +292,7 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
 </p>
 
-<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database "vicentin_matriz" foi automaticamente transferido do Shard3 para o Shard2.</p>
+<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database <b>vicentin_matriz</b> foi automaticamente transferido do Shard3 para o Shard2.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
@@ -304,7 +304,7 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
 
-<p>Agora, criaremos três filiais, denominadas "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C". Na filial A, adicionaremos 1.000.000 produtos, e nas restantes adicionaremos 500.000 cada.</p>
+<p>Agora, criaremos três filiais, denominadas <b>vicentin_filial_A, vicentin_filial_B</b> e <b>vicentin_filial_C</b>. Na filial A, adicionaremos 1.000.000 produtos, e nas restantes adicionaremos 500.000 cada.</p>
 
 ```python
 client = MongoClient('localhost', 27018)
@@ -333,7 +333,7 @@ collection = db.produtos_estoque_A
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
 </p>
 
-<p>Vamos verificar em quais shards os databases "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C" estão alocados.</p>
+<p>Vamos verificar em quais shards os databases <b>vicentin_filial_A, vicentin_filial_B</b> e <b>vicentin_filial_C</b> estão alocados.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
@@ -348,7 +348,7 @@ db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
 
-<h4>Consulta total de documentos do database "vicentin_matriz" e da collection "produtos_estoque_A".</h4>
+<h4>Consulta total de documentos do database <b>vicentin_matriz</b> e da collection <b>produtos_estoque_A</b>.</h4>
 <p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
 
 ```python
