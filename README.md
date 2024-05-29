@@ -236,6 +236,13 @@ docker network inspect mongo-vicentin-network-ro
 <p align="center">Apos desligar o container "mongo-config1".</p>
 
 <p>Agora irei adicionar o restante dos containers, para que seja monitorado os 9 shards, os 3 ConfigServers e o Roteador, fazendo o mesmo procedimento que foi feito anteriormente, alterando apenas o IP</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/977c43e9-9427-4162-a95c-5e898077ecc7" alt="roteador1">
+</p>
+<p align="center">O Zabbix apos adicionar todos os containers do MongoDB.</p>
+
+
+
 
 
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
