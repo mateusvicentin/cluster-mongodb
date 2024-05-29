@@ -205,6 +205,30 @@ docker run --name zabbix-server-mysql -t -e DB_SERVER_HOST="mysql-server" -e MYS
 ```shell
 docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-mysql" -e DB_SERVER_HOST="mysql-server" -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network -p 8080:8080 --restart unless-stopped -d zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
 ```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/0dc41db4-e450-48e9-b928-2681feb7a840" alt="roteador">
+</p>
+<p align="center">Servidor está online, para testar o funcionamento irei adicionar um dos conteiner para teste.</p>
+
+<p>Quando é adicionado algum host no Zabbix é preciso informar o ip do host, para descobrirmos o ip dos containers, iremos utilizar o seguinte comando:</p>
+
+```shell
+docker network inspect mongo-vicentin-network-ro
+```
+<p>Vou usar o "mongo-config1" por exemplo, ao consultar verifiquei que o ip dele é 172.26.0.6</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d1df5d89-7608-49cf-b734-4e11d955165c" alt="shell">
+</p>
+<p>Iremos configurar os seguintes atributos:</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/941ad796-d210-40d6-a987-44854181a25c" alt="shell">
+</p>
+<p>Hostname: Nome que irá aparecer</p>
+<p>Template: Selecionar o template, no caso irei escolher o ICMP pois ele vai monitorar o ping desse host</p>
+<p>Hostgroups: Posso colocar em qual grupo pertece esse host, como servidor, roteador, database ou outro tipo de host</p>
+<p>Agent: IP do host a ser adicionado, no caso como foi visto anteriormente é o 172.26.0.6</p>
+
+<p>Feito isso, assim que o container foi fechado no Docker, ou caso tenha algum problema e esse container fique sem acesso, ele irá aparecer no zabbix/p>
 
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
 <p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco e cria o database e a collection com a inserção de dados aleatorios, para o projeto foi criado os seguintes dados. ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</p>
