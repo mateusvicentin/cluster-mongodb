@@ -176,7 +176,7 @@ sh.addShard("shard2/mongo-shard-2-a:27020,mongo-shard-2-b:27020,mongo-shard-2-c:
 ```shell
 sh.addShard("shard3/mongo-shard-3-a:27021,mongo-shard-3-b:27021,mongo-shard-3-c:27021")
 ```
-<p>Para verificar se está tudo funcionando, é utilizado o comando sh.status()</p>
+<p>Para verificar se está tudo funcionando, é utilizado o comando <code>sh.status()</code></p>
 
 ```shell
 sh.status()
