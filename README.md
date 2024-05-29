@@ -55,7 +55,7 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d0050455-3383-4227-ac52-922bc7c0dd3d" alt="configserver">
 </p>
-<p>Nesse caso, o mongo-config1 é o principal, e os mongo-config2 e mongo-config3 são os secundários. Caso o principal perca comunicação ou sofra interrupções, um dos outros dois assumirá o papel de principal.</p>
+<p>Nesse caso, o <b>mongo-config1</b> é o principal, e os <b>mongo-config2</b> e <b>mongo-config3</b> são os secundários. Caso o principal perca comunicação ou sofra interrupções, um dos outros dois assumirá o papel de principal.</p>
 
 <h2>Criando os Shards</h2>
 <h4>Shard1</h4>
