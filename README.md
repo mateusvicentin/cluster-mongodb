@@ -347,3 +347,23 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
+
+<h4>Consulta total de documentos do database "vicentin_matriz" e da collection "produtos_estoque_A".</h4>
+<p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
+
+```python
+start_time = time.time()
+result_count = collection.count_documents({})
+
+end_time = time.time()
+execution_time = end_time - start_time
+
+print(f"Consulta de estoque para vicentin_matriz retornou {result_count} produtos.")
+print(f"Tempo de execução: {execution_time:.4f} segundos")
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3c1a08ef-48a7-4a5b-8823-80638bd0dc8e" alt="mongodb7">
+</p>
+<p>Caso queira testar algum outro banco, troque <code>db = client.vicentin_matriz</code> pelo nome do database desejado e <code>collection = db.produtos_estoque_A</code> pelo nome da collection.</p>
+
+
