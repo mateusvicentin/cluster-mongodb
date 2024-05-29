@@ -212,7 +212,7 @@ docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-my
 ```shell
 docker network inspect mongo-vicentin-network-ro
 ```
-<p>Utilizando o <b>mongo-config1"</b> como exemplo, verificamos que o IP dele é <b>172.26.0.6</b>.</p>
+<p>Utilizando o <b>mongo-config1</b> como exemplo, verificamos que o IP dele é <b>172.26.0.6</b>.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d1df5d89-7608-49cf-b734-4e11d955165c" alt="shell">
 </p>
