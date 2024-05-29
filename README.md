@@ -179,7 +179,7 @@ sh.addShard("shard2/mongo-shard-2-a:27020,mongo-shard-2-b:27020,mongo-shard-2-c:
 ```shell
 sh.addShard("shard3/mongo-shard-3-a:27021,mongo-shard-3-b:27021,mongo-shard-3-c:27021")
 ```
-<p>Para verificar se está tudo funcionando, é utilizado o comando "sh.status()"</p>
+<p>Para verificar se está tudo funcionando, é utilizado o comando sh.status()</p>
 
 ```shell
 sh.status()
@@ -191,7 +191,7 @@ sh.status()
 <p>Agora temos um Cluster MongoDB utilizando Docker, com um roteador configurado para direcionar as requisições de leitura e escrita para os shards corretos, além de três ConfigServers configurados para se comunicarem entre si, garantindo a redundância do sistema em caso de falha.</p>
 
 <h2>Configurando o Zabbix para monitoramento dos Containers</h2>
-<p>Nesse processo, irei criar os containers responsaveis para subir o servidor do Zabbix, para que funcione sem nenhum tipo de problema irei adicionar os containers do Zabbix dentro da rede "mongo-vicentin-network-ro" para que eles fiquem na mesma rede.</p>
+<p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede "mongo-vicentin-network-ro" para que todos estejam na mesma rede.</p>
 
 ```shell
 docker run --name mysql-server -t -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network-ro --restart unless-stopped -d mysql:8.0-oracle --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
@@ -208,46 +208,48 @@ docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-my
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/0dc41db4-e450-48e9-b928-2681feb7a840" alt="roteador">
 </p>
-<p align="center">Servidor está online, para testar o funcionamento irei adicionar um dos conteiner para teste.</p>
+<p align="center">Servidor está online. Para testar o funcionamento, adicionaremos um container para teste.</p>
 
-<p>Quando é adicionado algum host no Zabbix é preciso informar o ip do host, para descobrirmos o ip dos containers, iremos utilizar o seguinte comando:</p>
+<p>Ao adicionar um host no Zabbix, é necessário informar o IP do host. Para descobrir o IP dos containers, utilizamos o seguinte comando:</p>
 
 ```shell
 docker network inspect mongo-vicentin-network-ro
 ```
-<p>Vou usar o "mongo-config1" por exemplo, ao consultar verifiquei que o ip dele é 172.26.0.6</p>
+<p>Utilizando o "mongo-config1" como exemplo, verificamos que o IP dele é 172.26.0.6.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d1df5d89-7608-49cf-b734-4e11d955165c" alt="shell">
 </p>
-<p>Iremos configurar os seguintes atributos:</p>
+<p>Devemos configurar os seguintes atributos:</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/941ad796-d210-40d6-a987-44854181a25c" alt="shell">
 </p>
-<p>Hostname: Nome que irá aparecer</p>
-<p>Template: Selecionar o template, no caso irei escolher o ICMP pois ele vai monitorar o ping desse host</p>
-<p>Hostgroups: Posso colocar em qual grupo pertece esse host, como servidor, roteador, database ou outro tipo de host</p>
-<p>Agent: IP do host a ser adicionado, no caso como foi visto anteriormente é o 172.26.0.6 </p>
+<ul>
+<li><strong>Hostname:</strong> Nome que irá aparecer</li>
+<li><strong>Template:</strong> Selecionar o template, no caso utilizaremos o ICMP para monitorar o ping desse host</li>
+<li><strong>Hostgroups:</strong> Agrupar este host, como servidor, roteador, banco de dados ou outro tipo de host</li>
+<li><strong>Agent:</strong> IP do host a ser adicionado, no caso 172.26.0.6</li>
+</ul>
 
-<p>Feito isso, assim que o container foi fechado no Docker, ou caso tenha algum problema e esse container fique sem acesso, ele irá aparecer no zabbix</p>
+<p>Feito isso, se o container parar no Docker ou tiver algum problema de acesso, ele aparecerá no Zabbix.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/70a6eeac-fa51-4c67-8f3d-0824924d272b" alt="roteador1">
 </p>
-<p align="center">Apos desligar o container "mongo-config1".</p>
+<p align="center">Após desligar o container mongo-config1</p>
 
-<p>Agora irei adicionar o restante dos containers, para que seja monitorado os 9 shards, os 3 ConfigServers e o Roteador, fazendo o mesmo procedimento que foi feito anteriormente, alterando apenas o IP</p>
+<p>Agora, adicionaremos os demais containers para monitorar os 9 shards, os 3 ConfigServers e o Roteador, seguindo o mesmo procedimento, alterando apenas o IP.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/977c43e9-9427-4162-a95c-5e898077ecc7" alt="roteador1">
 </p>
-<p align="center">O Zabbix apos adicionar todos os containers do MongoDB.</p>
-<p>Vou derrubar alguns containers afim de verificar se está monitorando tudo de forma correta.</p>
+<p align="center">O Zabbix após adicionar todos os containers do MongoDB.</p>
+<p>Desligaremos alguns containers para verificar se o monitoramento está correto.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/442e43cb-86d5-4c4e-bd26-8f343d4e5212" alt="shell">
 </p>
-<p>O monitoramento está ocorrendo normalmente, caso o container perca conexão ou pare de funcionar, já vai aparecer no dashboard do Zabbix.</p>
+<p>O monitoramento está funcionando corretamente. Caso um container perca conexão ou pare de funcionar, será exibido no dashboard do Zabbix.</p>
 
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
-<p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco e cria o database e a collection com a inserção de dados aleatorios, para o projeto foi criado os seguintes dados. ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</p>
+<p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco de dados, cria o database e a collection, e insere dados aleatórios. Para o projeto, foram definidos os seguintes campos: ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade").</p>
 
 <h4>Conexão</h4>
 
@@ -256,7 +258,7 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_matriz
 collection = db.produtos_estoque_A
 ```
-<p>O database irá chamar "vicentin_matriz" e a collection "produtos_estoque_A"</p>
+<p>O database será denominado vicentin_matriz e a collection produtos_estoque_A.</p>
 
 <h4>Gerar Dados</h4>
 
@@ -277,17 +279,17 @@ def gerar_produto_aleatorio():
         "data_validade": data_validade
     }
 ```
-<p>Foi criado uma variavel "nomes_produtos" contendo nomes de produtos encontrados em supermercados, e quando forem inseridos o script irá escolher um dos nomes informados para inserir no banco.Nessa primeira database e collection, irei inserir 50,000 produtos</p>
+<p>Foi criada uma variável nomes_produtos contendo nomes de produtos encontrados em supermercados. Ao inserir os dados, o script seleciona aleatoriamente um dos nomes informados. Nesta primeira database e collection, inseriremos 50.000 produtos.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/36605196-d8d6-4e30-9cb6-0b37f921db6c" alt="mongodb1">
 </p>
-<p align="center"> Apos a inserção de 50000 produtos, ao conectarmos ao banco pelo Software do "MongoDB Compass" utilizando o "mongodb://localhost:27018" teremos essa tela ao acessar a database e o collection criado a partir do script.</p>
+<p align="center"> Após a inserção de 50.000 produtos, ao conectar ao banco pelo software "MongoDB Compass" utilizando "mongodb://localhost:27018", teremos essa tela ao acessar a database e a collection criada pelo script.</p>
 
-<p>Todo database criado é alocado em um dos três shards de forma aleatoria, como a ideia é que seja divido os dados e as informações, o proprio roteador decide em qual deles será mantido a informação.</p>
+<p>Todo database criado é alocado em um dos três shards de forma aleatória. Como a ideia é que os dados e informações sejam divididos, o próprio roteador decide em qual shard a informação será mantida.</p>
 
 <h4>Verificando em qual Shard o Database está alocado.</h4>
-<p>Para verificar, acessamos o roteador e utilizamos novamente do comando "sh.status()"</p>
+<p>Para verificar, acessamos o roteador e utilizamos novamente o comando "sh.status()".</p>
 
 ```shell
 sh.status()
@@ -295,15 +297,15 @@ sh.status()
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
 </p>
-<p align="center"> Nesse caso o seu Shard principal é o Shard3, porem todos os outros Shards conseguem chegar até essas informações pois todos estão na mesma rede e estão configurados dentro do roteador para serem visto.</p>
+<p align="center"> Neste caso, o Shard principal é o Shard3, mas todos os outros shards conseguem acessar essas informações, pois todos estão na mesma rede e configurados no roteador para serem visíveis.</p>
 
-<p>A ideia é ele seja capaz de lidar com milhares de produtos, então nesse mesmo database e collection irei inserir mais 3,250,000 produtos de forma aleatoria.</p>
+<p>A ideia é lidar com milhares de produtos. Portanto, neste mesmo database e collection, inseriremos mais 3.250.000 produtos aleatoriamente.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
 <p align="center">O database apos a inserção de mais 3,250,000 produtos.</p>
 
-<p>Agora, irei criar três filiais, com os nomes "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C", na filial A irei adicionar 1,000,000 produtos e na restante irei adicionar apenas 500,000</p>
+<p>Agora, criaremos três filiais, denominadas "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C". Na filial A, adicionaremos 1.000.000 produtos, e nas restantes adicionaremos 500.000 cada.</p>
 
 ```python
 client = MongoClient('localhost', 27018)
@@ -335,19 +337,18 @@ collection = db.produtos_estoque_A
 </p>
 <p align="center">Filial C.</p>
 
-<p>Desliguei todos os cluster e apos um tempo liguei novamente, e ao conferir o database "vicentin_matriz" trocou automaticamente de shard, passando do Shard3 para o Shard2</p>
+<p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database "vicentin_matriz" foi automaticamente transferido do Shard3 para o Shard2.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
 </p>
-<p align="center">Como pode ser visto ao desligar quando desligamos o cluster e ligamos novamente pode ser que o Database troque de Shard de forma automatica.</p>
+<p align="center">Como pode ser visto, ao desligar e religar o cluster, o database pode ser transferido automaticamente entre shards.</p>
 
-<p>Vamos verificar os Databases criados anteriormente, "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C" em qual Shard cada um dele está alocado. </p>
+<p>Vamos verificar em quais shards os databases "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C" estão alocados.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
 </p>
-<p align="center">Nesse caso o Database "vicentin_filial_A" está alocado ao shard1, e os "vicentin_filial_B" e "vicentin_filial_C" estão alocados ao shard3 </p>
-
+<p align="center">Neste caso, o database "vicentin_filial_A" está alocado no shard1, enquanto os databases "vicentin_filial_B" e "vicentin_filial_C" estão alocados no shard3.</p>
 
 
