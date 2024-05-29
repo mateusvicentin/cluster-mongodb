@@ -88,7 +88,6 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/716bf6d7-e6eb-412a-9730-f7cfc5b5da07" alt="shard1">
 </p>
-<p align="center">No caso do shard1, o mongo-shard-1-b é o principal, e os mongo-shard-1-a e mongo-shard-1-c são os secundários.</p>
 
 <h4>Shard2</h4>
 
@@ -121,7 +120,6 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/060e9ab4-5721-4f9d-adf9-64a75ccb64d0" alt="shard2">
 </p>
-<p align="center">No caso do shard2, o "mongo-shard-2-b" é o principal, e os "mongo-shard-2-a" e "mongo-shard-2-c" são os secundários.</p>
 
 <h4>Shard3</h4>
 
@@ -154,7 +152,6 @@ rs.initiate({
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9d913fe7-3323-480e-b493-78ac4af594e3" alt="shard3">
 </p>
-<p align="center">No caso do shard3, o "mongo-shard-3-a" é o principal, e os "mongo-shard-3-b" e "mongo-shard-3-c" são os secundários.</p>
 
 <p>Após a configuração dos ConfigServers e dos Shards, vamos configurar o Roteador. É através do Roteador que faremos as requisições de leitura e escrita no MongoDB.</p>
 
@@ -187,7 +184,6 @@ sh.status()
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c183f15-f149-4877-be48-e3431505a9b8" alt="roteador">
 </p>
-<p align="center"> Teremos uma tela parecida com essa, os shards separados cada um com seu conjunto de servidores.</p>
 <p>Agora temos um Cluster MongoDB utilizando Docker, com um roteador configurado para direcionar as requisições de leitura e escrita para os shards corretos, além de três ConfigServers configurados para se comunicarem entre si, garantindo a redundância do sistema em caso de falha.</p>
 
 <h2>Configurando o Zabbix para monitoramento dos Containers</h2>
@@ -208,7 +204,6 @@ docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-my
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/0dc41db4-e450-48e9-b928-2681feb7a840" alt="roteador">
 </p>
-<p align="center">Servidor está online. Para testar o funcionamento, adicionaremos um container para teste.</p>
 
 <p>Ao adicionar um host no Zabbix, é necessário informar o IP do host. Para descobrir o IP dos containers, utilizamos o seguinte comando:</p>
 
@@ -235,13 +230,11 @@ docker network inspect mongo-vicentin-network-ro
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/70a6eeac-fa51-4c67-8f3d-0824924d272b" alt="roteador1">
 </p>
-<p align="center">Após desligar o container mongo-config1</p>
 
 <p>Agora, adicionaremos os demais containers para monitorar os 9 shards, os 3 ConfigServers e o Roteador, seguindo o mesmo procedimento, alterando apenas o IP.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/977c43e9-9427-4162-a95c-5e898077ecc7" alt="roteador1">
 </p>
-<p align="center">O Zabbix após adicionar todos os containers do MongoDB.</p>
 <p>Desligaremos alguns containers para verificar se o monitoramento está correto.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/442e43cb-86d5-4c4e-bd26-8f343d4e5212" alt="shell">
@@ -284,8 +277,7 @@ def gerar_produto_aleatorio():
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/36605196-d8d6-4e30-9cb6-0b37f921db6c" alt="mongodb1">
 </p>
-<p align="center"> Após a inserção de 50.000 produtos, ao conectar ao banco pelo software "MongoDB Compass" utilizando "mongodb://localhost:27018", teremos essa tela ao acessar a database e a collection criada pelo script.</p>
-
+<p> Após a inserção de 50.000 produtos, ao conectar ao banco pelo software "MongoDB Compass" utilizando "mongodb://localhost:27018", teremos essa tela ao acessar a database e a collection criada pelo script.</p>
 <p>Todo database criado é alocado em um dos três shards de forma aleatória. Como a ideia é que os dados e informações sejam divididos, o próprio roteador decide em qual shard a informação será mantida.</p>
 
 <h4>Verificando em qual Shard o Database está alocado.</h4>
@@ -297,13 +289,12 @@ sh.status()
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/08d09e53-9996-41d8-96eb-33a865e8167f" alt="mongodb1">
 </p>
-<p align="center"> Neste caso, o Shard principal é o Shard3, mas todos os outros shards conseguem acessar essas informações, pois todos estão na mesma rede e configurados no roteador para serem visíveis.</p>
+
 
 <p>A ideia é lidar com milhares de produtos. Portanto, neste mesmo database e collection, inseriremos mais 3.250.000 produtos aleatoriamente.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
-<p align="center">O database apos a inserção de mais 3,250,000 produtos.</p>
 
 <p>Agora, criaremos três filiais, denominadas "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C". Na filial A, adicionaremos 1.000.000 produtos, e nas restantes adicionaremos 500.000 cada.</p>
 
@@ -325,30 +316,25 @@ collection = db.produtos_estoque_A
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3b54e484-16d2-420a-93a8-67e94d41bced" alt="mongodb3">
 </p>
-<p align="center">Filial A.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e9c2accb-6bbc-4169-9a74-aa8745372c58" alt="mongodb4">
 </p>
-<p align="center">Filial B.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
 </p>
-<p align="center">Filial C.</p>
 
 <p>Desligamos todos os clusters e, após um tempo, ligamos novamente. Ao conferir, verificamos que o database "vicentin_matriz" foi automaticamente transferido do Shard3 para o Shard2.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
 </p>
-<p align="center">Como pode ser visto, ao desligar e religar o cluster, o database pode ser transferido automaticamente entre shards.</p>
 
 <p>Vamos verificar em quais shards os databases "vicentin_filial_A", "vicentin_filial_B" e "vicentin_filial_C" estão alocados.</p>
 
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
 </p>
-<p align="center">Neste caso, o database "vicentin_filial_A" está alocado no shard1, enquanto os databases "vicentin_filial_B" e "vicentin_filial_C" estão alocados no shard3.</p>
 
 
