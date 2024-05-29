@@ -339,7 +339,7 @@ collection = db.produtos_estoque_A
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
 </p>
 
-<h4>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais.</h4>
+<h2>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais.</h2>
 <p>Irei aproveitar a conexão feita anteriormente para adicionar os produtos, então será utilizado o mesmo método.</p>
 
 ```python
