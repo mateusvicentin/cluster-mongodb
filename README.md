@@ -230,6 +230,14 @@ docker network inspect mongo-vicentin-network-ro
 
 <p>Feito isso, assim que o container foi fechado no Docker, ou caso tenha algum problema e esse container fique sem acesso, ele irá aparecer no zabbix</p>
 
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/70a6eeac-fa51-4c67-8f3d-0824924d272b" alt="roteador1">
+</p>
+<p align="center">Apos desligar o container "mongo-config1".</p>
+
+<p>Agora irei adicionar o restante dos containers, para que seja monitorado os 9 shards, os 3 ConfigServers e o Roteador, fazendo o mesmo procedimento que foi feito anteriormente, alterando apenas o IP</p>
+
+
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
 <p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco e cria o database e a collection com a inserção de dados aleatorios, para o projeto foi criado os seguintes dados. ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</p>
 
