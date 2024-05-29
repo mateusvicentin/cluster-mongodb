@@ -368,5 +368,11 @@ collection = db.produtos_estoque_A
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8a0ab321-4eaa-46c6-ba19-259d265c41f6" alt="mongodb7">
 </p>
+<h2>Atualização de Inventario:</b></h2>
+<p>Irei consultar dentro do MongoDB, para facilitar apenas uma informação. Irei buscar o ID: <b>81063928</b></p>
+<h4>Antes:</b></h4>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2ae4bdbc-e3df-4177-b25f-e60555325f14" alt="mongodb7">
+</p>
 
 
