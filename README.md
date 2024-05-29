@@ -187,7 +187,7 @@ sh.status()
 <p>Agora temos um Cluster MongoDB utilizando Docker, com um roteador configurado para direcionar as requisições de leitura e escrita para os shards corretos, além de três ConfigServers configurados para se comunicarem entre si, garantindo a redundância do sistema em caso de falha.</p>
 
 <h2>Configurando o Zabbix para monitoramento dos Containers</h2>
-<p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede "mongo-vicentin-network-ro" para que todos estejam na mesma rede do MongoDB.</p>
+<p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede <b> "mongo-vicentin-network-ro"</b> para que todos estejam na mesma rede do MongoDB.</p>
 
 ```shell
 docker run --name mysql-server -t -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network-ro --restart unless-stopped -d mysql:8.0-oracle --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
