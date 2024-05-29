@@ -279,6 +279,11 @@ collection = db.produtos_estoque_A
 </p>
 <p align="center">Filial C.</p>
 
+<p>Desliguei todos os cluster e apos um tempo liguei novamente, e ao conferir o database "vicentin_matriz" trocou automaticamente de shard, passando do Shard3 para o Shard2</p>
 
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
+</p>
+<p align="center">Como pode ser visto ao desligar o cluster, pode ser que o Database troque de Shard de forma automatica.</p>
 
 
