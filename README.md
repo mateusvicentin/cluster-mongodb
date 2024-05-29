@@ -221,7 +221,7 @@ docker network inspect mongo-vicentin-network-ro
 <ul>
 <li><strong>Hostname:</strong> Nome que irá aparecer</li>
 <li><strong>Template:</strong> Selecionar o template, no caso utilizaremos o ICMP para monitorar o ping desse host</li>
-<li><strong>Hostgroups:</strong> Agrupar este host, como servidor, roteador, banco de dados ou outro tipo de host</li>
+<li><strong>Hostgroups:</strong> Agrupar este host, como servidor, roteador, banco de dados ou outro tipo de host, no caso utilizaremos o Database</li>
 <li><strong>Agent:</strong> IP do host a ser adicionado, no caso 172.26.0.6</li>
 </ul>
 
