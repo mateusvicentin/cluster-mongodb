@@ -284,7 +284,7 @@ collection = db.produtos_estoque_A
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/98d2569c-4bed-4c93-b82a-0515bb61c477" alt="mongodb6">
 </p>
-<p align="center">Como pode ser visto ao desligar o cluster, pode ser que o Database troque de Shard de forma automatica.</p>
+<p align="center">Como pode ser visto ao desligar quando desligamos o cluster e ligamos novamente pode ser que o Database troque de Shard de forma automatica.</p>
 
 <p>Vamos verificar os Databases criados anteriormente, "vicentin_filial_A, vicentin_filial_B e vicentin_filial_C" em qual Shard cada um dele está alocado. </p>
 
