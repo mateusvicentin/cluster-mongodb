@@ -201,6 +201,8 @@ docker run --name zabbix-server-mysql -t -e DB_SERVER_HOST="mysql-server" -e MYS
 ```shell
 docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-mysql" -e DB_SERVER_HOST="mysql-server" -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network -p 8080:8080 --restart unless-stopped -d zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
 ```
+<p>O acesso ao Zabbix é feito através do seguinte domínio: <a href="http://localhost:8080/zabbix.php?action=dashboard.view">http://localhost:8080/zabbix.php?action=dashboard.view</a></p>
+
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/0dc41db4-e450-48e9-b928-2681feb7a840" alt="roteador">
 </p>
