@@ -240,10 +240,11 @@ docker network inspect mongo-vicentin-network-ro
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/977c43e9-9427-4162-a95c-5e898077ecc7" alt="roteador1">
 </p>
 <p align="center">O Zabbix apos adicionar todos os containers do MongoDB.</p>
-
-
-
-
+<p>Vou derrubar alguns containers afim de verificar se está monitorando tudo de forma correta.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/442e43cb-86d5-4c4e-bd26-8f343d4e5212" alt="shell">
+</p>
+<p>O monitoramento está ocorrendo normalmente, caso o container perca conexão ou pare de funcionar, já vai aparecer no dashboard do Zabbix.</p>
 
 <h2>Criando o Banco de Dados e Inserindo os Dados</h2>
 <p>Para realizar esse procedimento, foi criado um script em Python que faz a conexão com o banco e cria o database e a collection com a inserção de dados aleatorios, para o projeto foi criado os seguintes dados. ("id_produto", "nome_produto", "preco_compra", "quantidade", "data_entrada", "data_validade")</p>
