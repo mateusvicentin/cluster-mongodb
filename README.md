@@ -226,7 +226,7 @@ docker network inspect mongo-vicentin-network-ro
 <p>Hostname: Nome que irá aparecer</p>
 <p>Template: Selecionar o template, no caso irei escolher o ICMP pois ele vai monitorar o ping desse host</p>
 <p>Hostgroups: Posso colocar em qual grupo pertece esse host, como servidor, roteador, database ou outro tipo de host</p>
-<p>Agent: IP do host a ser adicionado, no caso como foi visto anteriormente é o 172.26.0.6</p>
+<p>Agent: IP do host a ser adicionado, no caso como foi visto anteriormente é o 172.26.0.6 </p>
 
 <p>Feito isso, assim que o container foi fechado no Docker, ou caso tenha algum problema e esse container fique sem acesso, ele irá aparecer no zabbix/p>
 
