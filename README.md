@@ -358,5 +358,15 @@ print(f"Tempo de execução: {execution_time:.4f} segundos")
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3c1a08ef-48a7-4a5b-8823-80638bd0dc8e" alt="mongodb7">
 </p>
 <p>Caso queira testar algum outro banco, troque <code>db = client.vicentin_matriz</code> pelo nome do database desejado e <code>collection = db.produtos_estoque_A</code> pelo nome da collection.</p>
+<h4>Exemplo:</h4>
+
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_A
+collection = db.produtos_estoque_A
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8a0ab321-4eaa-46c6-ba19-259d265c41f6" alt="mongodb7">
+</p>
 
 
