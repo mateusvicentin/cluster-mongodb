@@ -6,12 +6,12 @@
 * [Criando os Shards](#Criando-os-Shards)
 * [Criando o Roteador](#Criando-o-Roteador)
 * [Configurando o Zabbix para monitoramento dos Containers](#Configurando-o-Zabbix-para-monitoramento-dos-Containers)
+* [Criando o Banco de Dados e Inserindo os Dados](#Criando-o-Banco-de-Dados-e-Inserindo-os-Dados)
 * [Adicionando filiais](#Adicionando-filiais)
- 
-Consulta total de documentos
-Atualização de Inventario
-Excluindo um ID
-Conclusão
+* [Consulta total de documentos](#Consulta-total-de-documentos)
+* [Atualização de Inventario](#Atualização-de-Inventario)
+* [Excluindo um ID](#Excluindo-um-ID)
+* [Conclusão](#Conclusão)
                            
 <h2>Cenario:</h2>
 <p>O cenário utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermercados com filiais em diferentes cidades. Para isso, será utilizado um Cluster de MongoDB no Docker.</p>
