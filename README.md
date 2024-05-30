@@ -437,4 +437,38 @@ print(f"Tempo de execução: {execution_time:.4f} segundos")
 
 <p>Neste exemplo, utilizo o ID <b>45619377</b> para buscar dentro do banco de dados. Caso o ID informado não exista, será retornada uma mensagem de erro. Se qualquer um dos scripts não encontrar o ID, a mensagem será retornada.</p>
 
+<h2>Excluindo um ID:</b></h2>
+
+```python
+def excluir_produto_por_id(produto_id):
+    start_time = time.time()
+
+    produto = collection.find_one({"id": produto_id})
+    
+    if produto:
+        result = collection.delete_one({"id": produto_id})
+        if result.deleted_count > 0:
+            print("Produto excluído com sucesso:")
+            print(produto)
+        else:
+            print(f"Falha ao excluir o produto com ID {produto_id}.")
+    else:
+        print(f"Produto com ID {produto_id} não encontrado.")
+    
+    end_time = time.time()
+    execution_time = end_time - start_time
+    print(f"Tempo de execução: {execution_time:.4f} segundos")
+
+product_id_to_delete = int(input("Digite o ID do produto que deseja excluir: "))
+excluir_produto_por_id(product_id_to_delete)
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/055e40cb-7d92-465c-9dd7-b7ccfa92cf7b" alt="mongodb7">
+</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e74c2155-5d62-4ae0-88f6-065e64c15181" alt="mongodb7">
+</p>
+
+<p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
+
 
