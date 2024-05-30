@@ -493,4 +493,7 @@ excluir_produto_por_id(product_id_to_delete)
 
 <p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
 
+<h2>Em casos futuros, adição de novos Shards e ConfigServers:</h2>
+<p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores.</p>
+
 
