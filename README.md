@@ -9,6 +9,7 @@
 * [Criando o Banco de Dados e Inserindo os Dados](#Criando-o-Banco-de-Dados-e-Inserindo-os-Dados)
 * [Adicionando filiais](#Adicionando-filiais)
 * [Consulta total de documentos](#Consulta-total-de-documentos)
+* [Consultado um ID especifico](#Consultado-um-ID-especifico)
 * [Atualização de Inventario](#Atualização-de-Inventario)
 * [Excluindo um ID](#Excluindo-um-ID)
 * [Conclusão](#Conclusão)
