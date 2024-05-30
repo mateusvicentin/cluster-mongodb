@@ -189,15 +189,21 @@ sh.status()
 <h2>Configurando o Zabbix para monitoramento dos Containers:</h2>
 <p>Neste processo, criaremos os containers responsáveis por iniciar o servidor do Zabbix. Para garantir um funcionamento sem problemas, adicionaremos os containers do Zabbix à rede <b> mongo-vicentin-network-ro</b> para que todos estejam na mesma rede do MongoDB.</p>
 
+<h4>Banco MYSQL Server: </h4>
+
 ```shell
 docker run --name mysql-server -t -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network-ro --restart unless-stopped -d mysql:8.0-oracle --character-set-server=utf8 --collation-server=utf8_bin --default-authentication-plugin=mysql_native_password
 ```
+<h4>Gateway Java: </h4>
 ```shell
 docker run --name zabbix-java-gateway -t --network=mongo-vicentin-network-ro --restart unless-stopped -d zabbix/zabbix-java-gateway:alpine-6.4-latest
 ```
+<h4>Zabbix Server: </h4>
 ```shell
 docker run --name zabbix-server-mysql -t -e DB_SERVER_HOST="mysql-server" -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" -e ZBX_JAVAGATEWAY="zabbix-java-gateway" --network=mongo-vicentin-network-ro -p 10051:10051 --restart unless-stopped -d zabbix/zabbix-server-mysql:alpine-6.4-latest
 ```
+<h4>Servidor Web: </h4>
+
 ```shell
 docker run --name zabbix-web-nginx-mysql -t -e ZBX_SERVER_HOST="zabbix-server-mysql" -e DB_SERVER_HOST="mysql-server" -e MYSQL_DATABASE="zabbix" -e MYSQL_USER="zabbix" -e MYSQL_PASSWORD="zabbix_pwd" -e MYSQL_ROOT_PASSWORD="root_pwd" --network=mongo-vicentin-network -p 8080:8080 --restart unless-stopped -d zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
 ```
