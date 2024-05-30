@@ -499,6 +499,10 @@ excluir_produto_por_id(product_id_to_delete)
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8d9a031a-dc1e-4ba1-ae7c-b6d1122db433" alt="mongodb7">
 </p>
 
+<p>Caso fosse adicionado mais um shard e um config server, a representação do projeto ficaria assim:</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c2841d3-63de-4c99-83ab-7e324a2ad573" alt="mongodb7">
+</p>
 
 
 
