@@ -431,5 +431,6 @@ print(f"Tempo de execução: {execution_time:.4f} segundos")
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/be398cfe-8692-460e-9c34-1634f29f3de7" alt="mongodb7">
 </p>
+<p>Neste exemplo, utilizo o ID <b>45619377</b> para buscar dentro do banco de dados. Caso o ID informado não exista, será retornada uma mensagem de erro. Se qualquer um dos scripts não encontrar o ID, a mensagem será retornada.</p>
 
 
