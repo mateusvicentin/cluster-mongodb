@@ -494,6 +494,11 @@ excluir_produto_por_id(product_id_to_delete)
 <p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
 
 <h2>Em casos futuros, adição de novos Shards e ConfigServers:</h2>
-<p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores.</p>
+<p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores. Isso se dá conta, pois após inserir mais dados na matriz e fazer uma consulta, o tempo de resposta está um pouco mais elevado.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8d9a031a-dc1e-4ba1-ae7c-b6d1122db433" alt="mongodb7">
+</p>
+
+
 
 
