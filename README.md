@@ -470,5 +470,22 @@ excluir_produto_por_id(product_id_to_delete)
 </p>
 
 <p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
+<h2>Adicionando filiais:</b></h2>
+<p>Anteriormente, já foram inseridas três filiais <b>(filial_a, filial_b e filial_c)</b>. Irei adicionar mais três filiais para verificar como o sistema irá se comportar. Vou aproveitar o codigo usado nessas filiais, alterando apenas o final do codigo.</p>
 
-
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_D
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_E
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_F
+collection = db.produtos_estoque_A
+```
+<p>Em cada uma dessas filiais, irei adicionar 1.000.000 de produtos.</p>
