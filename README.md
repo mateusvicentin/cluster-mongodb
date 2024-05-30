@@ -297,41 +297,6 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
 
-<p>Agora, criaremos três filiais, denominadas <b>vicentin_filial_A, vicentin_filial_B</b> e <b>vicentin_filial_C</b>. Na filial A, adicionaremos 1.000.000 produtos, e nas restantes adicionaremos 500.000 cada.</p>
-
-```python
-client = MongoClient('localhost', 27018)
-db = client.vicentin_filial_A
-collection = db.produtos_estoque_A
-```
-```python
-client = MongoClient('localhost', 27018)
-db = client.vicentin_filial_B
-collection = db.produtos_estoque_A
-```
-```python
-client = MongoClient('localhost', 27018)
-db = client.vicentin_filial_C
-collection = db.produtos_estoque_A
-```
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3b54e484-16d2-420a-93a8-67e94d41bced" alt="mongodb3">
-</p>
-
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e9c2accb-6bbc-4169-9a74-aa8745372c58" alt="mongodb4">
-</p>
-
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
-</p>
-
-<p>Vamos verificar em quais shards os databases <b>vicentin_filial_A, vicentin_filial_B</b> e <b>vicentin_filial_C</b> estão alocados.</p>
-
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
-</p>
-
 <h2>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais:</h2>
 <p>Irei aproveitar a conexão feita anteriormente para adicionar os produtos, então será utilizado o mesmo método.</p>
 
@@ -471,8 +436,24 @@ excluir_produto_por_id(product_id_to_delete)
 
 <p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
 <h2>Adicionando filiais:</b></h2>
-<p>Anteriormente, já foram inseridas três filiais <b>(filial_a, filial_b e filial_c)</b>. Irei adicionar mais três filiais para verificar como o sistema irá se comportar. Vou aproveitar o codigo usado nessas filiais, alterando apenas o final do codigo.</p>
 
+<p>Agora, criaremos seis filiais, denominadas <b>vicentin_filial_A, vicentin_filial_B, vicentin_filial_C, vicentin_filial_D, vicentin_filial_E, vicentin_filial_F</b>.
+
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_A
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_B
+collection = db.produtos_estoque_A
+```
+```python
+client = MongoClient('localhost', 27018)
+db = client.vicentin_filial_C
+collection = db.produtos_estoque_A
+```
 ```python
 client = MongoClient('localhost', 27018)
 db = client.vicentin_filial_D
@@ -488,4 +469,23 @@ client = MongoClient('localhost', 27018)
 db = client.vicentin_filial_F
 collection = db.produtos_estoque_A
 ```
-<p>Em cada uma dessas filiais, irei adicionar 1.000.000 de produtos.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/3b54e484-16d2-420a-93a8-67e94d41bced" alt="mongodb3">
+</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/e9c2accb-6bbc-4169-9a74-aa8745372c58" alt="mongodb4">
+</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8948ea7d-c86a-4032-be7b-e9bb73c2b4cb" alt="mongodb5">
+</p>
+
+<p>Vamos verificar em quais shards os databases <b>vicentin_filial_A, vicentin_filial_B</b> e <b>vicentin_filial_C</b> estão alocados.</p>
+
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/4aaad6cf-2cd8-415c-a4e6-b306bbd82aa2" alt="mongodb7">
+</p>
+
+<p>Vamos verificar em quais shards os databases <b>vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b> estão alocados.</p>
+
