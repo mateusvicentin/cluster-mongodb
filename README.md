@@ -307,7 +307,7 @@ collection = db.produtos_estoque_A
 ```
 <h2>Adicionando filiais:</b></h2>
 
-<p> Anteriormente foi criado três filiais, <b>vicentin_filial_A, vicentin_filial_B, vicentin_filial_C</b> Agora, criaremos mais seis três, denominadas <b>vicentin_filial_D, vicentin_filial_E, vicentin_filial_F</b>.
+<p> Agora, criaremos seis filiais, denominadas <b>vicentin_filial_D, vicentin_filial_E, vicentin_filial_F, vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b>.
 
 ```python
 client = MongoClient('localhost', 27018)
