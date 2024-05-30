@@ -2,8 +2,13 @@
 <p>Este projeto tem como objetivo aplicar conceitos de dados em um ambiente de banco de dados distribuído, projetando um sistema escalável e eficientemente particionado para lidar com um grande volume de dados. O sistema permite o monitoramento dos clusters presentes no projeto e, caso algum deles pare de funcionar, o Zabbix realizará a notificação.</p>
 
 # Índice 
-
+* [Cenario:](#Cenario:)
 * [Criando os ConfigServers](#Criando-os-ConfigServers)
+* [Criando os Shards](#Criando-os-Shards)
+* [Acessando a configurção do Shard2](#Acessando-a-configurção-do-Shard2)
+* [Acessando a configurção do Shard3](#Acessando-a-configurção-do-Shard3)
+* [Criando o Roteador](#Criando-o-Roteador)
+* [Adicionando os Shards ao roteador](#Adicionando-os-Shards-ao-roteador)
 
 
 <h2>Cenario:</h2>
