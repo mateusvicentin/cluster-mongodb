@@ -359,6 +359,10 @@ collection = db.produtos_estoque_A
 
 <p>Vamos verificar em quais shards os databases <b>vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b> estão alocados.</p>
 
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/ca2246c3-8895-497e-bc67-9dce5c53424a" alt="mongodb7">
+</p>
+
 <h2>Consulta total de documentos:</b></h2>
 <p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
 
