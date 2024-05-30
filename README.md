@@ -5,10 +5,8 @@
 * [Cenario:](#Cenario:)
 * [Criando os ConfigServers](#Criando-os-ConfigServers)
 * [Criando os Shards](#Criando-os-Shards)
-* [Acessando a configurção do Shard2](#Acessando-a-configurção-do-Shard2)
-* [Acessando a configurção do Shard3](#Acessando-a-configurção-do-Shard3)
 * [Criando o Roteador](#Criando-o-Roteador)
-* [Adicionando os Shards ao roteador](#Adicionando-os-Shards-ao-roteador)
+* [Configurando o Zabbix para monitoramento dos Containers](#Configurando-o-Zabbix-para-monitoramento-dos-Containers)
 
 
 <h2>Cenario:</h2>
