@@ -409,4 +409,27 @@ else:
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/d9a0ed62-a063-4c77-aa08-629183361153" alt="mongodb7">
 </p>
 
+<h2>Consultado um ID especifico:</b></h2>
+
+```python
+product_id_to_query = int(input("Digite o ID do produto que deseja consultar: "))
+start_time = time.time()
+
+result = collection.find_one({"id": product_id_to_query})
+
+end_time = time.time()
+execution_time = end_time - start_time
+
+if result:
+    print("Produto encontrado:")
+    print(result)
+else:
+    print("Produto não encontrado.")
+
+print(f"Tempo de execução: {execution_time:.4f} segundos")
+```
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/be398cfe-8692-460e-9c34-1634f29f3de7" alt="mongodb7">
+</p>
+
 
