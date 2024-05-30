@@ -3,7 +3,7 @@
 
 # Índice 
 * [Criando os ConfigServers](#Criando-os-ConfigServers)
-* * [ConfigServer2](#ConfigServer2) 
+* [ConfigServer2](#ConfigServer2) 
 * [Criando os Shards](#Criando-os-Shards)
 * [Criando o Roteador](#Criando-o-Roteador)
 * [Configurando o Zabbix para monitoramento dos Containers](#Configurando-o-Zabbix-para-monitoramento-dos-Containers)
