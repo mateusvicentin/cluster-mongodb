@@ -513,5 +513,6 @@ excluir_produto_por_id(product_id_to_delete)
 </p>
 
 <h2>Conclusão:</b></h2>
+<p>Fica como atualização futura, adicção do plugin do Grafana para gerar graficos e criação de Dashboards de monitoramento dos clusters, para analise de cpu, memoria e outras informações que podem ser coletadas atraves do Zabbix.</p>
 
 
