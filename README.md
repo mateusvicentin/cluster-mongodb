@@ -530,6 +530,10 @@ excluir_produto_por_id(product_id_to_delete)
 <h2>Testando em um dos shards</h2>
 <p>Acessando o mongo-shard-3, vemos que o mongo-shard-3-c é o principal. Da mesma forma que no ConfigServer, irei encerrar apenas essa instância.</p>
 <p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/951774ef-9c43-472a-8812-070edf114010" alt="mongodb7">
+</p>
+<p>Apos encerrar apenas essa instância.</p>
+<p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/73c3cb6a-4529-48d3-9c1a-78a72bbd26c5" alt="mongodb7">
 </p>
 <p>Já nesse caso, quem se tornou o principal após desligar o mongo-shard-3-c foi o mongo-shard-3-a.</p>
