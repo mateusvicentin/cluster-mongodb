@@ -411,7 +411,7 @@ db = client.vicentin_filial_A
 collection = db.produtos_estoque_A
 ```
 <p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8a0ab321-4eaa-46c6-ba19-259d265c41f6" alt="mongodb7">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/dbba5880-5251-4e37-aeb0-5a7631dddd54" alt="mongodb7">
 </p>
 <h2>Atualização de Inventario:</b></h2>
 
