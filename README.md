@@ -525,6 +525,22 @@ excluir_produto_por_id(product_id_to_delete)
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c2841d3-63de-4c99-83ab-7e324a2ad573" alt="mongodb7">
 </p>
 
+<h2>Testando a Conexão dos Shards e ConfigServers:</h2>
+<p>Para isso, irei acessar o status de um dos shards e ConfigServer, para identificar qual é o principal e derrubar essa conexão para verificar se o outro container irá assumir como principal. Irei utilizar o comando <code>rs.status()</code no ConfigServer3</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/2796013f-3e74-4de9-bb94-e59b9fea91bf" alt="mongodb7">
+</p>
+<p>O mongo-config1 é o principal. Irei encerrar a instância desse cluster no Docker.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/348ede1b-766c-4ffc-aaaf-e91ec28a8928" alt="mongodb7">
+</p>
+<p>Como podemos ver, o mongo-config1 está offline e, automaticamente, o mongo-config2 se tornou o principal.</p>
+
+
+
+
+
+
 <h2>Conclusão:</b></h2>
 <p>Fica como atualização futura, adicção do plugin do Grafana para gerar graficos e criação de Dashboards de monitoramento dos clusters, para analise de cpu, memoria e outras informações que podem ser coletadas atraves do Zabbix.</p>
 
