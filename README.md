@@ -12,7 +12,9 @@
 * [Consultado um ID especifico](#Consultado-um-ID-especifico)
 * [Atualização de Inventario](#Atualização-de-Inventario)
 * [Excluindo um ID](#Excluindo-um-ID)
+* [Testando a Conexão dos Shards e ConfigServers](#Testando-a-Conexão-dos-Shards-e-ConfigServers)
 * [Conclusão](#Conclusão)
+
                            
 <h2>Cenario:</h2>
 <p>O cenário utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermercados com filiais em diferentes cidades. Para isso, será utilizado um Cluster de MongoDB no Docker.</p>
@@ -514,17 +516,6 @@ excluir_produto_por_id(product_id_to_delete)
 
 <p>No caso, após excluir o ID, ao consultar novamente no MongoDB, ele já não constará mais.</p>
 
-<h2>Em casos futuros, adição de novos Shards e ConfigServers:</h2>
-<p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores. Isso se dá conta, pois após inserir mais dados na matriz e fazer uma consulta, o tempo de resposta está um pouco mais elevado.</p>
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8d9a031a-dc1e-4ba1-ae7c-b6d1122db433" alt="mongodb7">
-</p>
-
-<p>Caso fosse adicionado mais um shard e um config server, a representação do projeto ficaria assim:</p>
-<p align="center">
-  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c2841d3-63de-4c99-83ab-7e324a2ad573" alt="mongodb7">
-</p>
-
 <h2>Testando a Conexão dos Shards e ConfigServers:</h2>
 <p>Para isso, irei acessar o status de um dos shards e ConfigServer, para identificar qual é o principal e derrubar essa conexão para verificar se o outro container irá assumir como principal. Irei utilizar o comando <code>rs.status()</code no ConfigServer3</p>
 <p align="center">
@@ -536,7 +527,32 @@ excluir_produto_por_id(product_id_to_delete)
 </p>
 <p>Como podemos ver, o mongo-config1 está offline e, automaticamente, o mongo-config2 se tornou o principal.</p>
 
+<h4>Testando em um dos shards</h4>
+<p>Acessando o mongo-shard-3, vemos que o mongo-shard-3-c é o principal. Da mesma forma que no ConfigServer, irei encerrar apenas essa instância.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/73c3cb6a-4529-48d3-9c1a-78a72bbd26c5" alt="mongodb7">
+</p>
+<p>Já nesse caso, quem se tornou o principal após desligar o mongo-shard-3-c foi o mongo-shard-3-a.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/05771821-1def-472b-a152-b7aab6221b0f" alt="mongodb7">
+</p>
 
+
+
+
+
+
+
+<h2>Em casos futuros, adição de novos Shards e ConfigServers:</h2>
+<p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores. Isso se dá conta, pois após inserir mais dados na matriz e fazer uma consulta, o tempo de resposta está um pouco mais elevado.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/8d9a031a-dc1e-4ba1-ae7c-b6d1122db433" alt="mongodb7">
+</p>
+
+<p>Caso fosse adicionado mais um shard e um config server, a representação do projeto ficaria assim:</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c2841d3-63de-4c99-83ab-7e324a2ad573" alt="mongodb7">
+</p>
 
 
 
