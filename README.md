@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9447150b-41d6-4c7f-8d1e-2596fc1da8f8" alt="apresentação">
+</p>
+
 <h1 align="center">Cluster MongoDB utilizando Docker e Monitoramento dos Containers via Zabbix</h1>
 <p>Este projeto tem como objetivo aplicar conceitos de dados em um ambiente de banco de dados distribuído, projetando um sistema escalável e eficientemente particionado para lidar com um grande volume de dados. O sistema permite o monitoramento dos clusters presentes no projeto e, caso algum deles pare de funcionar, o Zabbix realizará a notificação.</p>
 
