@@ -527,7 +527,7 @@ excluir_produto_por_id(product_id_to_delete)
 </p>
 <p>Como podemos ver, o mongo-config1 está offline e, automaticamente, o mongo-config2 se tornou o principal.</p>
 
-<h4>Testando em um dos shards</h4>
+<h2>Testando em um dos shards</h2>
 <p>Acessando o mongo-shard-3, vemos que o mongo-shard-3-c é o principal. Da mesma forma que no ConfigServer, irei encerrar apenas essa instância.</p>
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/73c3cb6a-4529-48d3-9c1a-78a72bbd26c5" alt="mongodb7">
@@ -536,12 +536,10 @@ excluir_produto_por_id(product_id_to_delete)
 <p align="center">
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/05771821-1def-472b-a152-b7aab6221b0f" alt="mongodb7">
 </p>
-
-
-
-
-
-
+<p>De todo modo, como configuramos o Zabbix para monitorar, ao acessar o dashboard, podemos confirmar que os dois containers não estão funcionando.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/05dc5910-f537-4c52-83bd-6cf96cf057a9" alt="mongodb7">
+</p>
 
 <h2>Em casos futuros, adição de novos Shards e ConfigServers:</h2>
 <p>Conforme o banco for crescendo, é aconselhável adicionar novos shards e config servers para que as configurações e os dados presentes no MongoDB fiquem sempre bem distribuídos entre eles, evitando demora nas consultas ou sobrecarga em algum dos servidores. Isso se dá conta, pois após inserir mais dados na matriz e fazer uma consulta, o tempo de resposta está um pouco mais elevado.</p>
