@@ -557,9 +557,11 @@ excluir_produto_por_id(product_id_to_delete)
 </p>
 
 
-
-
 <h2>Conclusão:</b></h2>
-<p>Fica como atualização futura, adicção do plugin do Grafana para gerar graficos e criação de Dashboards de monitoramento dos clusters, para analise de cpu, memoria e outras informações que podem ser coletadas atraves do Zabbix.</p>
+<p>Chegamos ao final do projeto, onde foi criado um cluster de MongoDB composto por 3 ConfigServers, 3 shards com 3 nós cada, e 1 roteador. Todo o monitoramento dos 13 hosts é realizado via Zabbix, utilizando os IPs distribuídos pelo próprio Docker. O cluster é autossuficiente para consultas e operações de 7 bancos de dados, cada um contendo milhões de dados armazenados.
+
+As adições de filiais e de dados foram realizadas através de um script em Python, que também incluiu scripts para consultas de informações, atualizações de inventário e exclusão de itens. Testamos a funcionalidade de failover, verificando que, caso um servidor principal seja desligado, um dos secundários assume sua função.
+
+Como atualização futura, planejamos adicionar o plugin do Grafana para gerar gráficos e criar dashboards de monitoramento dos clusters, permitindo a análise de CPU, memória e outras métricas coletadas pelo Zabbix. Além disso, caso as consultas comecem a ficar lentas ou surjam outros problemas de desempenho, será possível adicionar mais shards ou ConfigServers para balancear os dados novamente.</p>
 
 
