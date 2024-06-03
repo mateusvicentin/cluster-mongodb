@@ -560,6 +560,44 @@ excluir_produto_por_id(product_id_to_delete)
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/9c2841d3-63de-4c99-83ab-7e324a2ad573" alt="mongodb7">
 </p>
 
+<h2>Shardizando uma Coleção</h2>
+<p>Vamos configurar o particionamento do banco de dados, para que a gente consiga manipular e armazenar grandes volumes de dados, podendo distribuir a carga de trabalho.</p>
+<p>Para esse procedimento iremos utilizar o comando <code>sh.enableSharding("nomedobanco")</code> iremos usar para todos os Databases criados.</p>
+
+```python
+sh.enableSharding("vicentin_matriz")
+sh.enableSharding("vicentin_filial_A")
+sh.enableSharding("vicentin_filial_B")
+sh.enableSharding("vicentin_filial_C")
+sh.enableSharding("vicentin_filial_D")
+sh.enableSharding("vicentin_filial_E")
+sh.enableSharding("vicentin_filial_F")
+```
+<h4>Definir a Chave de Shard na Coleção</h4>
+<p>Vamos criar primeiro um indice para ser usado como chave do shard <code>db.myCollection.createIndex({ shardKeyField: 1 })</code> esse indice garante que o MongoDB possa distribuir os documentos da coleção entre os shards.</p>
+<p>Vamos criar um indice para cada banco e cada collection como exemplo a baixo.</p>
+
+```python
+db.produtos_estoque_A.createIndex({ shardKeyField: 1 })
+```
+<p> Apos habilitar o sharding em cada banco e criar os indices para eles, vamos distribuir os documentos de uma coleção entre os shards, vamos compartilhar com cada database e collection, para que ele divida a coleção em pedaços (chunks) e distribuir esses pedaços entre os shards.</p>
+<p>Para esse procedimento iremos utilizar o comando <code>sh.shardCollection("nomebanco.nomecoleção", { shardKeyField: 1 })</code>.</p>
+
+```python
+sh.shardCollection("vicentin_matriz.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_A.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_B.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_C.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_D.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_E.produtos_estoque_A", {shardKeyField: 1})
+sh.shardCollection("vicentin_filial_F.produtos_estoque_A", {shardKeyField: 1})
+```
+
+
+
+
+
+
 
 <h2>Conclusão:</b></h2>
 <p>Chegamos ao final do projeto, onde foi criado um cluster de MongoDB composto por 3 ConfigServers, 3 shards com 3 nós cada, e 1 roteador. Todo o monitoramento dos 13 hosts é realizado via Zabbix, utilizando os IPs distribuídos pelo próprio Docker. O cluster é autossuficiente para consultas e operações de 7 bancos de dados, cada um contendo milhões de dados armazenados.
