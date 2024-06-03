@@ -10,7 +10,7 @@
 * [Criando os Shards](#Criando-os-Shards)
 * [Criando o Roteador](#Criando-o-Roteador)
 * [Configurando o Zabbix para monitoramento dos Containers](#Configurando-o-Zabbix-para-monitoramento-dos-Containers)
-* [Shardizando uma Coleção](#Shardizando-uma-Coleção)
+* [Particionando uma Coleção](#Particionando-uma-Coleção)
 * [Criando o Banco de Dados e Inserindo os Dados](#Criando-o-Banco-de-Dados-e-Inserindo-os-Dados)
 * [Adicionando filiais](#Adicionando-filiais)
 * [Consulta total de documentos](#Consulta-total-de-documentos)
@@ -270,7 +270,7 @@ docker network inspect mongo-vicentin-network-ro
 </p>
 <p>O monitoramento está funcionando corretamente. Caso um container perca conexão ou pare de funcionar, será exibido no dashboard do Zabbix.</p>
 
-<h2>Shardizando uma Coleção</h2>
+<h2>Particionando uma Coleção</h2>
 <p>Vamos configurar o particionamento do banco de dados, para que possamos manipular e armazenar grandes volumes de dados, distribuindo a carga de trabalho de forma eficiente.</p>
 <p>Para este procedimento, utilizaremos o comando <code>sh.enableSharding("nomedobanco")</code>. Este comando deve ser usado para todos os bancos de dados criados.</p>
 
