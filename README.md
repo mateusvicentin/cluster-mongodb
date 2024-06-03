@@ -10,6 +10,7 @@
 * [Criando os Shards](#Criando-os-Shards)
 * [Criando o Roteador](#Criando-o-Roteador)
 * [Configurando o Zabbix para monitoramento dos Containers](#Configurando-o-Zabbix-para-monitoramento-dos-Containers)
+* [Shardizando uma Coleção](#Shardizando-uma-Coleção)
 * [Criando o Banco de Dados e Inserindo os Dados](#Criando-o-Banco-de-Dados-e-Inserindo-os-Dados)
 * [Adicionando filiais](#Adicionando-filiais)
 * [Consulta total de documentos](#Consulta-total-de-documentos)
@@ -17,7 +18,6 @@
 * [Atualização de Inventario](#Atualização-de-Inventario)
 * [Excluindo um ID](#Excluindo-um-ID)
 * [Testando a Conexão dos Shards e ConfigServers](#Testando-a-Conexão-dos-Shards-e-ConfigServers)
-* [Shardizando uma Coleção](#Shardizando-uma-Coleção)
 * [Conclusão](#Conclusão)
               
 <h2>Cenario:</h2>
@@ -276,12 +276,6 @@ docker network inspect mongo-vicentin-network-ro
 
 ```python
 sh.enableSharding("vicentin_matriz")
-sh.enableSharding("vicentin_filial_A")
-sh.enableSharding("vicentin_filial_B")
-sh.enableSharding("vicentin_filial_C")
-sh.enableSharding("vicentin_filial_D")
-sh.enableSharding("vicentin_filial_E")
-sh.enableSharding("vicentin_filial_F")
 ```
 <h4>Definir a Chave de Shard na Coleção</h4>
 <p>Vamos criar primeiro um índice para ser usado como chave do shard com o comando <code>db.nomecoleção.createIndex({ id: "hashed"})</code>. Este índice garante que o MongoDB possa distribuir os documentos da coleção entre os shards.</p>
@@ -362,6 +356,29 @@ collection = db.produtos_estoque_A
 <h2>Adicionando filiais:</b></h2>
 
 <p> Agora, criaremos seis filiais, denominadas <b>vicentin_filial_D, vicentin_filial_E, vicentin_filial_F, vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b>.
+<p> E tambem iremos realziar o Shardeamento do mesmo modo que foi feito na Matriz</b>.
+
+```python
+sh.enableSharding("vicentin_filial_A")
+sh.enableSharding("vicentin_filial_B")
+sh.enableSharding("vicentin_filial_C")
+sh.enableSharding("vicentin_filial_D")
+sh.enableSharding("vicentin_filial_E")
+sh.enableSharding("vicentin_filial_F")
+```
+
+```python
+db.produtos_estoque_A.createIndex({id: "hashed"})
+```
+
+```python
+sh.shardCollection("vicentin_filial_A.produtos_estoque_A", {id: "hashed"})
+sh.shardCollection("vicentin_filial_B.produtos_estoque_A", {id: "hashed"})
+sh.shardCollection("vicentin_filial_C.produtos_estoque_A", {id: "hashed"})
+sh.shardCollection("vicentin_filial_D.produtos_estoque_A", {id: "hashed"})
+sh.shardCollection("vicentin_filial_E.produtos_estoque_A", {id: "hashed"})
+sh.shardCollection("vicentin_filial_F.produtos_estoque_A", {id: "hashed"})
+```
 
 ```python
 client = MongoClient('localhost', 27018)
