@@ -17,9 +17,9 @@
 * [Atualização de Inventario](#Atualização-de-Inventario)
 * [Excluindo um ID](#Excluindo-um-ID)
 * [Testando a Conexão dos Shards e ConfigServers](#Testando-a-Conexão-dos-Shards-e-ConfigServers)
+* [Shardizando uma Coleção](#Shardizando-uma-Coleção)
 * [Conclusão](#Conclusão)
-
-                           
+              
 <h2>Cenario:</h2>
 <p>O cenário utilizado é um sistema de gerenciamento de estoque para uma cadeia de supermercados com filiais em diferentes cidades. Para isso, será utilizado um Cluster de MongoDB no Docker.</p>
 
@@ -592,13 +592,6 @@ sh.shardCollection("vicentin_filial_D.produtos_estoque_A", {shardKeyField: 1})
 sh.shardCollection("vicentin_filial_E.produtos_estoque_A", {shardKeyField: 1})
 sh.shardCollection("vicentin_filial_F.produtos_estoque_A", {shardKeyField: 1})
 ```
-
-
-
-
-
-
-
 <h2>Conclusão:</b></h2>
 <p>Chegamos ao final do projeto, onde foi criado um cluster de MongoDB composto por 3 ConfigServers, 3 shards com 3 nós cada, e 1 roteador. Todo o monitoramento dos 13 hosts é realizado via Zabbix, utilizando os IPs distribuídos pelo próprio Docker. O cluster é autossuficiente para consultas e operações de 7 bancos de dados, cada um contendo milhões de dados armazenados.
 
