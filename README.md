@@ -434,6 +434,11 @@ collection = db.produtos_estoque_A
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/ca2246c3-8895-497e-bc67-9dce5c53424a" alt="mongodb7">
 </p>
 
+<p>Verificando se está realizando o Shard do <b>vicentin_filial_F</b> por exemplo.</p>
+<p align="center">
+  <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/ae553b4a-dc96-435a-a353-91e1ef9e3605" alt="mongodb7">
+</p>
+
 <h2>Consulta total de documentos:</b></h2>
 <p>Foi utilizada a biblioteca time para verificar o tempo que a solicitação de busca no banco demora.</p>
 
