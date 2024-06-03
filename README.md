@@ -306,6 +306,24 @@ collection = db.produtos_estoque_A
 <h4>Gerar Dados</h4>
 
 ```python
+nomes_produtos = [
+    "Arroz", "Feijão", "Macarrão", "Leite", "Óleo", "Açúcar", "Café", "Farinha", "Pão", 
+    "Carne", "Frango", "Peixe", "Maçã", "Banana", "Laranja", "Tomate", "Alface", "Cenoura", 
+    "Batata", "Refrigerante", "Suco", "Cerveja", "Vinho", "Água", "Sabonete", "Shampoo", 
+    "Condicionador", "Pasta de Dente", "Papel Higiênico", "Detergente", "Sabão em Pó", 
+    "Amaciante", "Desinfetante", "Vassoura", "Esponja", "Camiseta", "Calça", "Meia", 
+    "Sapato", "Sandália", "Manteiga", "Queijo", "Presunto", "Iogurte", "Biscoito", 
+    "Bolacha", "Chocolate", "Cereal", "Granola", "Mel", "Azeite", "Vinagre", "Molho de Tomate", 
+    "Ketchup", "Maionese", "Mostarda", "Pimenta", "Sal", "Pimenta-do-Reino", "Orégano", 
+    "Manjericão", "Canela", "Noz-Moscada", "Couve", "Brócolis", "Espinafre", "Abobrinha", 
+    "Berinjela", "Pepino", "Pimentão", "Cebola", "Alho", "Gengibre", "Limão", "Morango", 
+    "Uva", "Pêra", "Pêssego", "Abacaxi", "Mamão", "Melancia", "Abacate", "Laranja Lima", 
+    "Lichia", "Kiwi", "Rúcula", "Escarola", "Repolho", "Nabo", "Beterraba", "Chuchu", 
+    "Batata Doce", "Mandioquinha", "Rabanete", "Alho-Poró", "Cebolinha", "Salsinha", 
+    "Coentro", "Hortelã", "Manjerona", "Tomilho", "Alecrim", "Erva-Doce", "Salsão", "Cogumelo", 
+    "Shitake", "Shimeji", "Alcachofra", "Aspargos", "Pimenta Biquinho", "Pimenta Jalapeño"
+]
+
 def gerar_produto_aleatorio():
     id_produto = random.randint(0, 99999999)
     nome_produto = random.choice(nomes_produtos)
