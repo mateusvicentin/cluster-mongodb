@@ -574,14 +574,14 @@ sh.enableSharding("vicentin_filial_E")
 sh.enableSharding("vicentin_filial_F")
 ```
 <h4>Definir a Chave de Shard na Coleção</h4>
-<p>Vamos criar primeiro um índice para ser usado como chave do shard com o comando <code>db.nomecoleção.createIndex({ shardKeyField: 1 })</code>. Este índice garante que o MongoDB possa distribuir os documentos da coleção entre os shards.</p>
+<p>Vamos criar primeiro um índice para ser usado como chave do shard com o comando <code>db.nomecoleção.createIndex({ shardKey: "hashed"})</code>. Este índice garante que o MongoDB possa distribuir os documentos da coleção entre os shards.</p>
 <p>Vamos criar um índice para cada banco e cada coleção, como mostrado no exemplo abaixo.</p>
 
 ```python
 db.produtos_estoque_A.createIndex({shardKey: "hashed"})
 ```
 <p>Após habilitar o sharding em cada banco e criar os índices para eles, vamos distribuir os documentos de uma coleção entre os shards. Para isso, vamos compartilhar cada banco e coleção, permitindo que o MongoDB divida a coleção em pedaços (chunks) e distribua esses pedaços entre os shards.</p>
-<p>Para este procedimento, utilizaremos o comando <code>sh.shardCollection("nomebanco.nomecolecao", { shardKeyField: 1 })</code>.</p>
+<p>Para este procedimento, utilizaremos o comando <code>sh.shardCollection("nomebanco.nomecolecao", { shardKey: "hashed" })</code>.</p>
 
 ```python
 sh.shardCollection("vicentin_matriz.produtos_estoque_A", {shardKey: "hashed"})
