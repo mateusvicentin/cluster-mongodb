@@ -356,7 +356,7 @@ collection = db.produtos_estoque_A
 <h2>Adicionando filiais:</b></h2>
 
 <p> Agora, criaremos seis filiais, denominadas <b>vicentin_filial_D, vicentin_filial_E, vicentin_filial_F, vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b>.
-<p> E tambem iremos realziar o Shardeamento do mesmo modo que foi feito na Matriz</b>.
+<p> E tambem iremos realizar o Shardeamento do mesmo modo que foi feito na Matriz</b>.
 
 ```python
 sh.enableSharding("vicentin_filial_A")
