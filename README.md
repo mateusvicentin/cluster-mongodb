@@ -363,14 +363,6 @@ sh.status()
   <img src="https://github.com/mateusvicentin/cluster-mongodb/assets/31457038/58bf467c-d819-41d4-8009-bf4fcbfd186b" alt="mongodb2">
 </p>
 
-<h2>Scripts de consulta de estoque, atualizações de inventário e adição de novas filiais:</h2>
-<p>Irei aproveitar a conexão feita anteriormente para adicionar os produtos, então será utilizado o mesmo método.</p>
-
-```python
-client = MongoClient('localhost', 27018)
-db = client.vicentin_matriz
-collection = db.produtos_estoque_A
-```
 <h2>Adicionando filiais:</b></h2>
 
 <p> Agora, criaremos seis filiais, denominadas <b>vicentin_filial_D, vicentin_filial_E, vicentin_filial_F, vicentin_filial_D, vicentin_filial_E</b> e <b>vicentin_filial_F</b>.
